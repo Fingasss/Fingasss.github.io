@@ -1,4 +1,4 @@
-@media handheld {
+@media screen and (orientation: portrait) {
     .container{
         height: 98.5vw;
     }
