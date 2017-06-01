@@ -1,4 +1,4 @@
-@media screen and (orientation: portrait) {
+@media (orientation: portrait) {
     .container{
         height: 98.5vw;
     }
@@ -34,6 +34,11 @@ a:active{
 }
 .container div{
     position: absolute;
+}
+.content{
+    position: fixed;
+    top: 2%;
+    text-align: center;
 }
 .clouds_b{
     overflow: hidden;
