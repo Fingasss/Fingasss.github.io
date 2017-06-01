@@ -16,8 +16,13 @@ window.onload = function() {
         html.addEventListener("DOMMouseScroll", scrollDoc, false); // FF
         html.addEventListener("mousewheel", scrollDoc, false); // Chrome
     }
+    $(".name").hover(function() {
+        $(".description").css("display", "block");
+    },
+    function(){
+        $(".description").css("display", "none");
+    });
 }
-
 $(window).scroll(function(){
 
     var st = $(this).scrollLeft(),

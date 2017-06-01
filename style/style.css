@@ -1,4 +1,4 @@
-@media (orientation: portrait) {
+@media {
     .container{
         height: 98.5vw;
     }
@@ -36,9 +36,22 @@ a:active{
     position: absolute;
 }
 .content{
+    overflow: hidden;
     position: fixed;
-    top: 2%;
+    top:0;
     text-align: center;
+    color: hotpink;
+    left: 40%;
+    font-size: larger;
+    z-index: 3;
+}
+.description{
+    position: fixed;
+    bottom: 20%;
+    left: 20%;
+    right: 20%;
+    color: #0c0c0c;
+    display: none;
 }
 .clouds_b{
     overflow: hidden;
