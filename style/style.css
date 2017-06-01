@@ -1,3 +1,8 @@
+@media handheld {
+    .container{
+        height: 98.5vw;
+    }
+}
 body{
     margin:0;
 }
@@ -83,7 +88,7 @@ a:active{
 .social{
     z-index: 10;
     position: fixed;
-    top:82%;
+    bottom: 5%;
     left:45%;
     color: #ffffff;
     font-size: 32px;
