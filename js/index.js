@@ -34,7 +34,6 @@ $(window).scroll(function(){
         }
         else
         dodost=st;
-    console.log(st,dodost,w,h);
     if(st<maxScroll) {
 
         $(".paralaxed1").css({
