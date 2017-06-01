@@ -1,0 +1,91 @@
+body{
+    margin:0;
+}
+a:hover{
+    color:#ffffff;
+}
+a:visited{
+    color:#0c0c0c;
+}
+a:active{
+    color:#ffffff;
+}
+.container{
+    height: 98.5vh;
+    background-image: linear-gradient(to top, #d2ecf0, #92d1e3);
+    background-repeat: repeat-x;
+    background-size: cover;
+    width: 230%;
+    position: relative;
+    z-index: -1;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+.container div{
+    position: absolute;
+}
+.clouds_b{
+    overflow: hidden;
+    background-image: url("../src/ыва.png");
+    background-size: contain;
+    background-repeat: repeat-x;
+    height: 30vh;
+    width: 140%;
+    z-index: 2;
+}
+.dodo{
+    overflow: hidden;
+    z-index: 3;
+    background-image: url("../src/Walk (18).png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 60vh;
+    width: 40vh;
+    top: 30%;
+}
+.mountains{
+    overflow: hidden;
+    z-index: 4;
+    background-image: url("../src/mountains.png");
+    background-size: contain;
+    background-repeat: repeat-x;
+    height: 40vh;
+    width: 200%;
+    top: 60%;
+}
+.blur_clouds{
+    overflow: hidden;
+    overflow-x: hidden;
+    z-index: 5;
+    background-image: url("../src/ап.png");
+    background-size: contain;
+    background-repeat: space no-repeat;
+    height: 50vh;
+    width: 500%;
+    top:10px;
+    filter: blur(5px);
+    opacity: 0.9;
+}
+.appStore img{
+    background: rgba(255,255,255,0.0);
+    overflow: hidden;
+    height: 100%;
+}
+.appStore img:hover{
+    box-shadow: 10px 10px 5px rgba(5,7,8,0.5);
+}
+.social{
+    z-index: 10;
+    position: fixed;
+    top:82%;
+    left:45%;
+    color: #ffffff;
+    font-size: 32px;
+    display: inline;
+}
+.facebook, vk, insta, linkedIn{
+    margin-top: -5%;
+}
+*{
+    transition: transform 1s;
+}
