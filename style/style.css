@@ -3,8 +3,13 @@
         height: 98.5vw;
     }
 }
+@font-face {
+    font-family: Arvo;
+    src: url("../fonts/Arvo-Bold.ttf");
+}
 body{
     margin:0;
+    font-family: Arvo;
 }
 
 a{
