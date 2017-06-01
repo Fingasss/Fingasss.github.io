@@ -1,4 +1,7 @@
 var wDelta = 25;
+function opacitiDes(opacity){
+    $(".description").css("opacity", opacity);
+}
 function scrollDoc(e) {
     if (!e) e = event;
     if (e.preventDefault) { e.preventDefault(); } else { e.returnValue = false; }
@@ -16,12 +19,12 @@ window.onload = function() {
         html.addEventListener("DOMMouseScroll", scrollDoc, false); // FF
         html.addEventListener("mousewheel", scrollDoc, false); // Chrome
     }
-    $(".name").hover(function() {
+/*    $(".name").hover(function() {
         $(".description").css("display", "block");
     },
     function(){
         $(".description").css("display", "none");
-    });
+    });*/
 }
 $(window).scroll(function(){
 
@@ -55,5 +58,22 @@ $(window).scroll(function(){
         })
     }
 
+    if(st>200) {
+        opacitiDes("0.4");
+        if(st>400){
+            opacitiDes("0.8");
+            if(st>600){
+                opacitiDes("1");
+                if(st>800){
+                    opacitiDes("0.5");
+                    if(st>100){
+                        opacitiDes("0");
+                    }
+                }
+            }
+        }
+    }else{
+        opacitiDes("0");
+    }
 
 });

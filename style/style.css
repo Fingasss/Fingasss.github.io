@@ -3,6 +3,16 @@
         height: 98.5vw;
     }
 }
+@media screen and (max-width:1200px){
+    .description {
+        position: fixed;
+        bottom: 20%;
+        left: 20%;
+        right: 20%;
+        color: #0c0c0c;
+        display: none;
+    }
+}
 @font-face {
     font-family: Arvo;
     src: url("../fonts/Arvo-Bold.ttf");
@@ -50,13 +60,15 @@ a:active{
     font-size: larger;
     z-index: 3;
 }
-.description{
+.description {
     position: fixed;
-    bottom: 20%;
-    left: 20%;
-    right: 20%;
+    top: 30%;
+    left: 50%;
+    right: 10%;
     color: #0c0c0c;
-    display: none;
+    opacity: 1;
+    display: block;
+    transition: opacity 1s;
 }
 .clouds_b{
     overflow: hidden;
