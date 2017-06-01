@@ -1,6 +1,13 @@
 body{
     margin:0;
 }
+
+a{
+    color:#0c0c0c;
+}
+a:-webkit-any-link{
+    color: #0c0c0c;
+}
 a:hover{
     color:#ffffff;
 }
@@ -18,8 +25,7 @@ a:active{
     width: 230%;
     position: relative;
     z-index: -1;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow:hidden;
 }
 .container div{
     position: absolute;

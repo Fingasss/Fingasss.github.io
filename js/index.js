@@ -22,12 +22,19 @@ $(window).scroll(function(){
 
     var st = $(this).scrollLeft(),
         dodost = st,
-        maxScroll=2500;
-/*    if($(window.innerHeight<400)) {
-        dodost *= 2;
+        maxScroll=2500,
+        h=$(window).innerHeight(),
+        w=$(window).innerWidth();
+    if(((w>765)) && (w<1000) && (h>1200)) {
+        dodost /= 1.5;
     }
     else
-        dodost=st;*/
+        if(h<700 && w > 1200){
+        dodost*=1.6;
+        }
+        else
+        dodost=st;
+    console.log(st,dodost,w,h);
     if(st<maxScroll) {
 
         $(".paralaxed1").css({
