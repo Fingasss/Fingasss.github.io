@@ -1,4 +1,4 @@
-@media handheld{
+@media only screen and (max-width: 768px) and (min-height: 1200px){
     .container{
         height: 98.5vw;
     }
@@ -62,13 +62,30 @@ a:active{
 }
 .description {
     position: fixed;
-    top: 30%;
-    left: 50%;
-    right: 10%;
     color: #0c0c0c;
     opacity: 0;
     display: block;
     transition: opacity 1s;
+}
+.description1{
+    top: 30%;
+    left: 60%;
+    right: 10%;
+}
+.description2{
+    top: 30%;
+    left: 50%;
+    right: 10%;
+}
+.description3{
+    top: 30%;
+    left: 50%;
+    right: 10%;
+}
+.description4{
+    top: 30%;
+    left: 50%;
+    right: 10%;
 }
 .clouds_b{
     overflow: hidden;

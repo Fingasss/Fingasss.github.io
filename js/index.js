@@ -1,6 +1,6 @@
 var wDelta = 25;
 function opacitiDes(opacity){
-    $(".description").css("opacity", opacity);
+    $(".description1").css("opacity", opacity);
 }
 function scrollDoc(e) {
     if (!e) e = event;
