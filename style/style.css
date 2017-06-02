@@ -66,13 +66,13 @@ a:active{
     left: 50%;
     right: 10%;
     color: #0c0c0c;
-    opacity: 1;
+    opacity: 0;
     display: block;
     transition: opacity 1s;
 }
 .clouds_b{
     overflow: hidden;
-    background-image: url("../src/ыва.png");
+    background-image: url("../src/clouds.png");
     background-size: contain;
     background-repeat: repeat-x;
     height: 30vh;
@@ -103,7 +103,7 @@ a:active{
     overflow: hidden;
     overflow-x: hidden;
     z-index: 5;
-    background-image: url("../src/ап.png");
+    background-image: url("../src/cloud.png");
     background-size: contain;
     background-repeat: space no-repeat;
     height: 50vh;
