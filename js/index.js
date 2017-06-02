@@ -19,12 +19,6 @@ window.onload = function() {
         html.addEventListener("DOMMouseScroll", scrollDoc, false); // FF
         html.addEventListener("mousewheel", scrollDoc, false); // Chrome
     }
-/*    $(".name").hover(function() {
-        $(".description").css("display", "block");
-    },
-    function(){
-        $(".description").css("display", "none");
-    });*/
 }
 $(window).scroll(function(){
 
@@ -33,7 +27,7 @@ $(window).scroll(function(){
         maxScroll=2500,
         h=$(window).innerHeight(),
         w=$(window).innerWidth();
-    if(((w>765)) && (w<1000) && (h>1200)) {
+    if((w>765) && (w<1000) && (h>1200)) {
         dodost /= 1.5;
     }
     else
