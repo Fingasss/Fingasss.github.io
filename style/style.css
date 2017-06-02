@@ -70,22 +70,22 @@ a:active{
 .description1{
     top: 30%;
     left: 60%;
-    right: 10%;
+    right: 20%;
 }
 .description2{
-    top: 30%;
-    left: 50%;
-    right: 10%;
+    top: 50%;
+    left: 40%;
+    right: 40%;
 }
 .description3{
-    top: 30%;
-    left: 50%;
+    top: 80%;
+    left: 70%;
     right: 10%;
 }
 .description4{
-    top: 30%;
-    left: 50%;
-    right: 10%;
+    top: 40%;
+    left: 10%;
+    right: 70%;
 }
 .clouds_b{
     overflow: hidden;

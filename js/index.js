@@ -1,6 +1,9 @@
 var wDelta = 25;
-function opacitiDes(opacity){
-    $(".description1").css("opacity", opacity);
+function opacitiDes(opacity = [0, 0, 0, 0]){
+    $(".description1").css("opacity", opacity[0]);
+    $(".description2").css("opacity", opacity[1]);
+    $(".description3").css("opacity", opacity[2]);
+    $(".description4").css("opacity", opacity[3]);
 }
 function scrollDoc(e) {
     if (!e) e = event;
@@ -53,21 +56,22 @@ $(window).scroll(function(){
     }
 
     if(st>200) {
-        opacitiDes("0.4");
+        opacitiDes(["0.4", "0", "0", "0"]);
         if(st>400){
-            opacitiDes("0.8");
+            opacitiDes(["0.8", "0.4", "0", "0"]);
             if(st>600){
-                opacitiDes("1");
+                opacitiDes(["1", "0.8", "0.4", "0"]);
                 if(st>800){
-                    opacitiDes("0.5");
-                    if(st>100){
-                        opacitiDes("0");
+                    opacitiDes(["0.5", "1", "0.8", "0.4"]);
+                    if(st>1000) {
+                        opacitiDes(["0", "0.5", "0.6", "1"]);
+                        if (st > 1200) {
+                            opacitiDes(["0", "0", "0.2", "0.8"]);
+                        }
                     }
                 }
             }
         }
-    }else{
-        opacitiDes("0");
     }
 
 });
