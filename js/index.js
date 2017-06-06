@@ -1,7 +1,7 @@
 var wDelta = 25;
 var floatinV=0;
-var floatSmth=1;
-var step =1;
+var floatSmth= 1;
+var step = 1;
 function opacitiDes(opacity = [0, 0, 0, 0]){
     $(".description1").css("opacity", opacity[0]);
     $(".description2").css("opacity", opacity[1]);
@@ -17,11 +17,10 @@ function scrollDoc(e) {
     if (this.attachEvent) return false;
     document.body.scrollLeft -= __delta * wDelta; // Chrome
 }
-function windowParalax(selector, st, addition=1, koef=1){
+function windowParalax(selector, st){
     $(selector).css({
-        "transform": "translate(" + (st+floatinV*floatSmth*10*addition) + "px,"+ Math.sin(st/100)*10 +"%)"
+        "transform": "translate(" + (st+floatinV*floatSmth*10) + "px,"+ Math.sin(st/100)*10 +"%)"
     });
-    console.log(floatinV*floatSmth);
     if(floatinV>20) {
         floatSmth*=-1;
         floatinV = 0;
@@ -57,8 +56,6 @@ $(window).scroll(function(){
     if(st<maxScroll) {
 
         windowParalax(".paralaxed1", st);
- //       windowParalax(".named", st, -1.2, 1);
-        console.log(floatSmth);
         $(".named").css({
            "transform": "translate(" + st + "px,0%)"
         });
@@ -75,16 +72,37 @@ $(window).scroll(function(){
             "transform": "translate("+ st +"px,"+ -st*3 +"%)"
         })
     }
-
- /*   if(st>200) {
-        opacitiDes(["0.4", "0", "0", "0"]);
-        if(st>400){
-            opacitiDes(["0.8", "0.4", "0", "0"]);
-            if(st>600){
-                opacitiDes(["1", "0.8", "0.4", "0"]);
-                if(st>800){
-                    opacitiDes(["0.5", "1", "0.8", "0.4"]);
-                    if(st>1000) {
+    if(st>-1) {
+        var inner = $(".dodo"),
+            outer = $(".outer_dodo");
+        inner.css({
+            "transform": "rotate(-180deg)",
+            "transition": "all 2s ease"
+        });
+        outer.css({
+            "transform": "rotate(180deg)",
+            "transition": "all 2s ease"
+        });
+            if(st>200){
+                outer.css({
+                    "transform": "rotate(0deg)",
+                    "margin-left":"52vw",
+                    "transition": "all 0s ease"
+                });
+                inner.css({
+                    "transform": "rotate(0deg)",
+                    "transition": "all 0s ease"
+                });
+                if(st>600){
+                    inner.css({
+                        "transition": "all 2s ease",
+                        "transform": "rotate(-180deg)"
+                    });
+                    outer.css({
+                        "transition": "all 2s ease",
+                        "transform": "rotate(180deg)"
+                    });
+                    if(st>600) {
                         opacitiDes(["0", "0.5", "0.6", "1"]);
                         if (st > 1200) {
                             opacitiDes(["0", "0", "0.2", "0.8"]);
@@ -92,7 +110,6 @@ $(window).scroll(function(){
                     }
                 }
             }
-        }
-    }*/
+    }
 
 });

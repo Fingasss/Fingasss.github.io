@@ -22,6 +22,15 @@ body{
     width: 230vw;
     font-family: Arvo;
 }
+.outer_dodo{
+    margin-left: 10vw;
+    z-index: 5;
+    position: absolute;
+    height: 60vh;
+    width: 40vh;
+    top: 30vh;
+    transform-origin: 32vw 30vh;
+}
 
 a{
     color:#0c0c0c;
@@ -111,15 +120,12 @@ a:active{
     transition: transform 5s;
 }
 .dodo{
-    overflow: hidden;
-    margin-left: 10vw;
     z-index: 5;
+    height: 100%;
+    width: 100%;
     background-image: url("../src/Walk (18).png");
     background-size: contain;
     background-repeat: no-repeat;
-    height: 60vh;
-    width: 40vh;
-    top: 30vh;
 }
 .mountains{
     overflow: hidden;
