@@ -42,19 +42,19 @@ $(window).scroll(function(){
     if(st<maxScroll) {
 
         $(".paralaxed1").css({
-            "transform": "translate(" + -st / 100 + "%,"+ Math.sin(st/100)*10 +"%)"
+            "transform": "translate(" + -st / 100 + "vw,"+ Math.sin(st/100)*10 +"%)"
         });
         $(".paralaxed2").css({
-            "transform": "translate(" + dodost / 3 + "%, 0%)"
+            "transform": "translate(" + dodost / (window.innerWidth/110) + "vw, 0%)"
         });
         $(".paralaxed3").css({
-            "transform": "translate(" + -st / 50 + "%, 0%)"
+            "transform": "translate(" + -st / 50 + "vw, 0%)"
         });
         $(".paralaxed4").css({
-            "transform": "translate(" + -st / 30 +"%,"+ (Math.sin(st/100)*10+1) +"%)"
+            "transform": "translate(" + -st / 30 +"vw,"+ (Math.sin(st/100)*10+1) +"%)"
         })
-        $(".paralaxed5").css({
-            "transform": "translate(0%,"+ st +"%)"
+        $(".description").css({
+            "transform": "translate("+ st +"px,"+ -st*3 +"%)"
         })
     }
 
