@@ -53,6 +53,9 @@ $(window).scroll(function(){
         $(".paralaxed4").css({
             "transform": "translate(" + -st / 30 +"%,"+ (Math.sin(st/100)*10+1) +"%)"
         })
+        $(".paralaxed5").css({
+            "transform": "translate(0%,"+ st +"%)"
+        })
     }
 
     if(st>200) {

@@ -61,31 +61,33 @@ a:active{
     z-index: 3;
 }
 .description {
-    position: fixed;
+    position: absolute;
+    overflow: hidden;
     color: #0c0c0c;
     opacity: 0;
+    z-index: 20;
     display: block;
-    transition: opacity 1s;
+    transition: transform 1s;
 }
 .description1{
-    top: 30%;
-    left: 60%;
-    right: 20%;
+    top: 50vh;
+    left: 60vw;
+    right: 20vw;
 }
 .description2{
-    top: 50%;
-    left: 40%;
-    right: 40%;
+    top: 150vh;
+    left: 60vw;
+    right: 20vw;
 }
 .description3{
-    top: 80%;
-    left: 70%;
-    right: 10%;
+    top: 200vh;
+    left: 60vw;
+    right: 20vw;
 }
 .description4{
-    top: 40%;
-    left: 10%;
-    right: 70%;
+    top: 250vh;
+    left: 60vw;
+    right: 20vw;
 }
 .clouds_b{
     overflow: hidden;
