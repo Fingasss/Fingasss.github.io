@@ -19,6 +19,7 @@
 }
 body{
     margin:0;
+    width: 230vw;
     font-family: Arvo;
 }
 
@@ -90,12 +91,23 @@ a:active{
     left: 60vw;
     right: 20vw;
 }
+.named {
+    margin-left:10vw;
+    font-size: 72px;
+    max-width: 80vw;
+    text-align: center;
+    overflow: hidden;
+    color: #ff8989;
+    z-index: 0;
+}
 .clouds_b img{
+    margin-top: -20vh;
     overflow: hidden;
     background-image: url("../src/clouds.png");
     background-size: contain;
     width: 100vw;
     z-index: 2;
+    transition: transform 1s;
 }
 .dodo{
     overflow: hidden;
@@ -165,23 +177,24 @@ a:active{
     width: 20vw;
 }
 .appStore img:hover{
-    width: 100%;
-    box-shadow: 0px 3px 5px rgba(5,7,8,0.5);
-    border-radius: 5px;
+    width: 20vw;
+    box-shadow: 0 3px 5px rgba(5,7,8,0.5);
+    border-radius: 10px;
 }
 .appStore img:active{
     box-shadow: 0 2px 3px rgba(5,7,8,0.5);
+    border-radius: 10px;
 }
 .social{
     z-index: 10;
     position: fixed;
     bottom: 5vh;
-    left:45vw;
+    right:15vw;
     color: #ffffff;
     font-size: 32px;
     display: inline;
 }
-.facebook, vk, insta, linkedIn{
+.facebook, .vk, .insta, .linkedIn{
     margin-top: -5%;
 }
 *{

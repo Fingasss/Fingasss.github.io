@@ -17,11 +17,11 @@ function scrollDoc(e) {
     if (this.attachEvent) return false;
     document.body.scrollLeft -= __delta * wDelta; // Chrome
 }
-function windowParalax(selector, st){
+function windowParalax(selector, st, addition=1, koef=1){
     $(selector).css({
-        "transform": "translate(" + (floatSmth+1)*(st) + "px,"+ Math.sin(st/100)*10 +"%)"
+        "transform": "translate(" + (st+floatinV*floatSmth*20*addition) + "px,"+ Math.sin(st/100)*10 +"%)"
     });
-    console.log(st + (floatSmth*100));
+    console.log(floatinV*floatSmth);
     if(floatinV>10) {
         floatSmth*=-1;
         floatinV = 0;
@@ -57,6 +57,7 @@ $(window).scroll(function(){
     if(st<maxScroll) {
 
         windowParalax(".paralaxed1", st);
+        windowParalax(".named", st, -1.2, 1);
         console.log(floatSmth);
         $(".paralaxed2").css({
             "transform": "translate(" + dodost / (window.innerWidth/110) + "vw, 0%)"
