@@ -99,6 +99,7 @@ a:active{
     overflow: hidden;
     color: #ff8989;
     z-index: 0;
+    transition: transform 0s;
 }
 .clouds_b img{
     margin-top: -20vh;
@@ -107,11 +108,12 @@ a:active{
     background-size: contain;
     width: 100vw;
     z-index: 2;
-    transition: transform 1s;
+    transition: transform 5s;
 }
 .dodo{
     overflow: hidden;
-    z-index: 3;
+    margin-left: 10vw;
+    z-index: 5;
     background-image: url("../src/Walk (18).png");
     background-size: contain;
     background-repeat: no-repeat;

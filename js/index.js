@@ -19,10 +19,10 @@ function scrollDoc(e) {
 }
 function windowParalax(selector, st, addition=1, koef=1){
     $(selector).css({
-        "transform": "translate(" + (st+floatinV*floatSmth*20*addition) + "px,"+ Math.sin(st/100)*10 +"%)"
+        "transform": "translate(" + (st+floatinV*floatSmth*10*addition) + "px,"+ Math.sin(st/100)*10 +"%)"
     });
     console.log(floatinV*floatSmth);
-    if(floatinV>10) {
+    if(floatinV>20) {
         floatSmth*=-1;
         floatinV = 0;
         step++;
@@ -57,8 +57,11 @@ $(window).scroll(function(){
     if(st<maxScroll) {
 
         windowParalax(".paralaxed1", st);
-        windowParalax(".named", st, -1.2, 1);
+ //       windowParalax(".named", st, -1.2, 1);
         console.log(floatSmth);
+        $(".named").css({
+           "transform": "translate(" + st + "px,0%)"
+        });
         $(".paralaxed2").css({
             "transform": "translate(" + dodost / (window.innerWidth/110) + "vw, 0%)"
         });
@@ -73,7 +76,7 @@ $(window).scroll(function(){
         })
     }
 
-    if(st>200) {
+ /*   if(st>200) {
         opacitiDes(["0.4", "0", "0", "0"]);
         if(st>400){
             opacitiDes(["0.8", "0.4", "0", "0"]);
@@ -90,6 +93,6 @@ $(window).scroll(function(){
                 }
             }
         }
-    }
+    }*/
 
 });
