@@ -90,14 +90,11 @@ a:active{
     left: 60vw;
     right: 20vw;
 }
-.clouds_b{
+.clouds_b img{
     overflow: hidden;
-    filter: blur(8px);
     background-image: url("../src/clouds.png");
     background-size: contain;
-    background-repeat: repeat-x;
-    height: 30vh;
-    width: 140%;
+    width: 100vw;
     z-index: 2;
 }
 .dodo{
@@ -165,7 +162,7 @@ a:active{
 .appStore img{
     background: rgba(255,255,255,0.0);
     overflow: hidden;
-    width: 100%;
+    width: 20vw;
 }
 .appStore img:hover{
     width: 100%;

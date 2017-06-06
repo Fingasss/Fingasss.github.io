@@ -1,4 +1,7 @@
 var wDelta = 25;
+var floatinV=0;
+var floatSmth=1;
+var step =1;
 function opacitiDes(opacity = [0, 0, 0, 0]){
     $(".description1").css("opacity", opacity[0]);
     $(".description2").css("opacity", opacity[1]);
@@ -13,6 +16,18 @@ function scrollDoc(e) {
     document.documentElement.scrollLeft -= __delta * wDelta; // FF, Opera, IE
     if (this.attachEvent) return false;
     document.body.scrollLeft -= __delta * wDelta; // Chrome
+}
+function windowParalax(selector, st){
+    $(selector).css({
+        "transform": "translate(" + (floatSmth+1)*(st) + "px,"+ Math.sin(st/100)*10 +"%)"
+    });
+    console.log(st + (floatSmth*100));
+    if(floatinV>10) {
+        floatSmth*=-1;
+        floatinV = 0;
+        step++;
+    }
+    floatinV++;
 }
 window.onload = function() {
     var html = document.documentElement;
@@ -41,9 +56,8 @@ $(window).scroll(function(){
         dodost=st;
     if(st<maxScroll) {
 
-        $(".paralaxed1").css({
-            "transform": "translate(" + -st / 100 + "vw,"+ Math.sin(st/100)*10 +"%)"
-        });
+        windowParalax(".paralaxed1", st);
+        console.log(floatSmth);
         $(".paralaxed2").css({
             "transform": "translate(" + dodost / (window.innerWidth/110) + "vw, 0%)"
         });
