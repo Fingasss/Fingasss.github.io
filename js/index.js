@@ -2,8 +2,9 @@ var wDelta = 25;
 var floatinV=0;
 var floatSmth= 1;
 var step = 1;
-var i = 0;
 var tempScroll =0, left = false, num=0;
+
+
 function moveDodo(inner, outer){
     inner.css({
         "transform": "rotate(-180deg)",
@@ -34,7 +35,7 @@ function scrollDoc(e) {
     if (this.attachEvent) return false;
     document.body.scrollLeft -= __delta * wDelta; // Chrome
 }
-function windowParalax(selector, st){
+function windowWHParalax(selector, st){
     $(selector).css({
         "transform": "translate(" + (st+floatinV*floatSmth*10) + "px,"+ Math.sin(st/100)*10 +"%)"
     });
@@ -45,6 +46,19 @@ function windowParalax(selector, st){
     }
     floatinV++;
 }
+function windowHParalax(selector, st, koef){
+    $(selector).css({
+        "transform": "translate(" + (st+0.1) + "px,"+ Math.sin(st/100*koef)*10 +"%)"
+    });
+    if(floatinV>20) {
+        floatSmth*=-1;
+        floatinV = 0;
+        step++;
+    }
+    floatinV++;
+}
+
+
 window.onload = function() {
     var html = document.documentElement;
     if (html.attachEvent) {
@@ -54,6 +68,7 @@ window.onload = function() {
         html.addEventListener("mousewheel", scrollDoc, false); // Chrome
     }
 }
+
 $(window).scroll(function(){
 
     var st = $(this).scrollLeft(),
@@ -76,22 +91,15 @@ $(window).scroll(function(){
         dodost=st;
     if(st<maxScroll) {
 
-        windowParalax(".paralaxed1", st);
+        windowWHParalax(".paralaxed1", st);
+        windowHParalax(".cloud1", st, 2);
+        windowHParalax(".cloud2", st, 3);
         $(".named").css({
            "transform": "translate(" + st + "px,0%)"
-        });
-        $(".paralaxed2").css({
-            "transform": "translate(" + dodost / (window.innerWidth/110) + "vw, 0%)"
         });
         $(".paralaxed3").css({
             "transform": "translate(" + -st / 50 + "vw, 0%)"
         });
-        $(".paralaxed4").css({
-            "transform": "translate(" + -st / 30 +"vw,"+ (Math.sin(st/100)*10+1) +"%)"
-        })
-        $(".description").css({
-            "transform": "translate("+ st +"px,"+ -st*3 +"%)"
-        })
     }
 
     var inner = $(".dodo"),
@@ -112,6 +120,4 @@ $(window).scroll(function(){
                 break;
         }
     }
-
-
 });

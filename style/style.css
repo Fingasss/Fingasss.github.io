@@ -138,46 +138,23 @@ a:active{
     top: 60vh;
 }
 .blur_clouds{
-
     position: absolute;
-
     filter: blur(5px);
     opacity: 0.9;
+    z-index: 12;
+    height: 100%;
+    width: 100%;
 }
-.firstCloud{
-    height: 40vh;
+.cloud1{
     position: absolute;
-    z-index: 3;
-    top:-10vh;
-    left:30vw;
+    margin-top: -25vh;
+    margin-left: -40vw;
 }
-.secondCloud{
-    height: 20vh;
+.cloud2{
     position: absolute;
-    top:10vh;
-    z-index: 5;
-    left:80vw;
-}
-.thirdCloud{
-    height: 40vh;
-    position: absolute;
-    top:10vh;
-    z-index: 0;
-    left:110vw;
-}
-.fourthCloud{
-    height: 10vh;
-    position: absolute;
-    top:10vh;
-    z-index: 3;
-    left:150vw;
-}
-.fivesCloud{
-    z-index: 3;
-    height: 35vh;
-    position: absolute;
-    top:10vh;
-    left:200vw;
+    margin-top: -10vh;
+    margin-left: 80vw;
+    margin-right: -50vw;
 }
 .appStore img{
     background: rgba(255,255,255,0.0);
