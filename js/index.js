@@ -2,7 +2,7 @@ var wDelta = 5;
 var floatinV=0;
 var floatSmth= 1;
 var step = 1;
-var tempScroll =0, left = false, num=0;
+var tempScroll =0, left = false, num=0, i=0, arr=[0, 42, 84, 126, 168];
 
 
 function moveDodo(inner, outer){
@@ -19,11 +19,11 @@ function standDodo(inner, outer, pos){
     outer.css({
         "transform": "rotate(0deg)",
         "margin-left":"" + pos + "vw",
-        "transition": "all 1s ease"
+        "transition": "margin-left 0s ease"
     });
     inner.css({
         "transform": "rotate(0deg)",
-        "transition": "all 1s ease"
+        "transition": "all 0s ease"
     });
 }
 function scrollDoc(e) {
@@ -70,12 +70,13 @@ window.onload = function() {
 }
 
 $(window).scroll(function(){
-
     var st = $(this).scrollLeft(),
         dodost = st,
         maxScroll=2500,
         h=$(window).innerHeight(),
         w=$(window).innerWidth();
+    var position = (100*st)/$(window).width();
+    console.log(st, position);
     if(st>tempScroll)
         left = false;
     else left = true;
@@ -101,23 +102,22 @@ $(window).scroll(function(){
             "transform": "translate(" + -st / 50 + "vw, 0%)"
         });
     }
-
     var inner = $(".dodo"),
         outer = $(".outer_dodo");
+
     if(!left){
-        switch (num){
-            case 0:
-                standDodo(inner, outer, 10);
-                break;
-            case 1:
+        if((position/12)>i) {
+            if (num) {
                 moveDodo(inner, outer);
-                break;
-            case 2:
-                standDodo(inner, outer, 52);
-                break;
-            case 3:
-                moveDodo(inner, outer);
-                break;
+                i++;
+                num--;
+            } else {
+                standDodo(inner, outer, arr[i / 2]);
+                i++;
+                num++;
+            }
         }
+    }else{
+
     }
 });
