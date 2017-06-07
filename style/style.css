@@ -28,8 +28,8 @@ body{
     position: absolute;
     height: 60vh;
     width: 40vh;
-    top: 30vh;
-    transform-origin: 32vw 40vh;
+    bottom: 5vh;
+    transform-origin: 32vw 30vh;
 }
 
 a{
@@ -39,7 +39,7 @@ a:-webkit-any-link{
     color: #0c0c0c;
 }
 i:hover{
-    color:#ffdffd;
+    text-shadow: 0px 2px 3px #000;
 }
 a:visited{
     color:#0c0c0c;
@@ -69,36 +69,6 @@ a:active{
     left: 40vw;
     font-size: larger;
     z-index: 3;
-}
-.description {
-    position: absolute;
-    overflow: hidden;
-    color: #0c0c0c;
-    max-width: 30vw;
-    opacity: 0;
-    z-index: 20;
-    display: block;
-    transition: transform 0s;
-}
-.description1{
-    top: 50vh;
-    left: 60vw;
-    right: 20vw;
-}
-.description2{
-    top: 150vh;
-    left: 60vw;
-    right: 20vw;
-}
-.description3{
-    top: 200vh;
-    left: 60vw;
-    right: 20vw;
-}
-.description4{
-    top: 250vh;
-    left: 60vw;
-    right: 20vw;
 }
 .named {
     margin-left:10vw;
@@ -148,7 +118,7 @@ a:active{
 .cloud1{
     position: absolute;
     margin-top: -25vh;
-    margin-left: -40vw;
+    margin-left: -50vw;
 }
 .cloud2{
     position: absolute;
@@ -179,8 +149,12 @@ a:active{
     font-size: 32px;
     display: inline;
 }
+.smedia{
+    text-align: center;
+}
 .facebook, .vk, .insta, .linkedIn{
     margin-top: -5%;
+    padding: 4px 4px;
 }
 *{
     transition: transform 1s;

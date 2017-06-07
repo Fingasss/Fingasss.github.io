@@ -1,4 +1,4 @@
-var wDelta = 25;
+var wDelta = 5;
 var floatinV=0;
 var floatSmth= 1;
 var step = 1;
@@ -37,9 +37,9 @@ function scrollDoc(e) {
 }
 function windowWHParalax(selector, st){
     $(selector).css({
-        "transform": "translate(" + (st+floatinV*floatSmth*10) + "px,"+ Math.sin(st/100)*10 +"%)"
+        "transform": "translate(" + (st+floatinV*floatSmth*5) + "px,"+ Math.sin(st/100)*10 +"%)"
     });
-    if(floatinV>20) {
+    if(floatinV>40) {
         floatSmth*=-1;
         floatinV = 0;
         step++;
