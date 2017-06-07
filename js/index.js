@@ -4,6 +4,26 @@ var floatSmth= 1;
 var step = 1;
 var tempScroll =0, left = false, num=0, i=0, arr=[0, 42, 84, 126, 168];
 
+function scrollBack(){
+    var curPos1=$(window).scrollLeft();
+    var width1=$(window).width()/10;
+    var scrollTime1=500;
+    if((curPos1-width1)>0)
+        $("html, body").animate({"scrollLeft":curPos1-width1},scrollTime1);
+    else $("html, body").animate({"scrollLeft":0}, scrollTime1);
+}
+
+function scrollRight(){
+    var curPos=$(window).scrollLeft();
+    var width=$(window).width()/10;
+    var scrollTime=500;
+    $("html, body").animate({"scrollLeft":curPos+width},scrollTime);
+}
+
+function scrollToStart(){
+    var scrollTime1=500;
+    $("html, body").animate({"scrollLeft":0},scrollTime1);
+}
 
 function moveDodo(inner, outer){
     inner.css({
@@ -67,29 +87,26 @@ window.onload = function() {
         html.addEventListener("DOMMouseScroll", scrollDoc, false); // FF
         html.addEventListener("mousewheel", scrollDoc, false); // Chrome
     }
-}
+
+    scrollToStart();
+
+    $(document).keypress(function(e) {
+        if (e.which === 39 || e.keyCode === 39) {
+            scrollRight();
+        }
+        else
+        if(e.which === 37 || e.keyCode === 37){
+            scrollBack();
+        }
+    });
+};
 
 $(window).scroll(function(){
     var st = $(this).scrollLeft(),
-        dodost = st,
-        maxScroll=2500,
-        h=$(window).innerHeight(),
-        w=$(window).innerWidth();
+        maxScroll=2500;
     var position = (100*st)/$(window).width();
-    console.log(st, position);
-    if(st>tempScroll)
-        left = false;
-    else left = true;
+    left=!(st>tempScroll);
     tempScroll = st;
-    if((w>765) && (w<1000) && (h>1200)) {
-        dodost /= 1.5;
-    }
-    else
-        if(h<700 && w > 1200){
-        dodost*=1.6;
-        }
-        else
-        dodost=st;
     if(st<maxScroll) {
 
         windowWHParalax(".paralaxed1", st);
@@ -108,11 +125,11 @@ $(window).scroll(function(){
     if(!left){
         if((position/12)>i&&i<10) {
             if (num) {
-                moveDodo(inner, outer);
+                setTimeout(moveDodo(inner, outer), 1500);
                 i++;
                 num--;
             } else {
-                standDodo(inner, outer, arr[i / 2]);
+                setTimeout(standDodo(inner, outer, arr[i / 2]), 1500);
                 i++;
                 num++;
             }
