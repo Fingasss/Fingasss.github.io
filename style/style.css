@@ -130,6 +130,7 @@ a:active{
     background: rgba(255,255,255,0.0);
     overflow: hidden;
     width: 20vw;
+    min-height: 40px;
 }
 .appStore img:hover{
     width: 20vw;

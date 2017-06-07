@@ -1,4 +1,4 @@
-var wDelta = 5;
+var wDelta = 15;
 var floatinV=0;
 var floatSmth= 1;
 var step = 1;
@@ -8,11 +8,11 @@ var tempScroll =0, left = false, num=0, i=0, arr=[0, 42, 84, 126, 168];
 function moveDodo(inner, outer){
     inner.css({
         "transform": "rotate(-180deg)",
-        "transition": "all 2s ease"
+        "transition": "all 1.2s ease"
     });
     outer.css({
         "transform": "rotate(180deg)",
-        "transition": "all 2s ease"
+        "transition": "all 1.2s ease"
     });
 }
 function standDodo(inner, outer, pos){
@@ -106,7 +106,7 @@ $(window).scroll(function(){
         outer = $(".outer_dodo");
 
     if(!left){
-        if((position/12)>i) {
+        if((position/12)>i&&i<10) {
             if (num) {
                 moveDodo(inner, outer);
                 i++;
