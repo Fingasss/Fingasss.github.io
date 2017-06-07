@@ -9,20 +9,20 @@ function scrollBack(){
     var width1=$(window).width()/10;
     var scrollTime1=500;
     if((curPos1-width1)>0)
-        $("html, body").animate({"scrollLeft":curPos1-width1},scrollTime1);
-    else $("html, body").animate({"scrollLeft":0}, scrollTime1);
+        $("html,body").animate({"scrollLeft":curPos1-width1},scrollTime1);
+    else $("html,body").animate({"scrollLeft":0}, scrollTime1);
 }
 
 function scrollRight(){
     var curPos=$(window).scrollLeft();
     var width=$(window).width()/10;
-    var scrollTime=500;
-    $("html, body").animate({"scrollLeft":curPos+width},scrollTime);
+    var scrollTime = 500;
+    $('html,body').animate({'scrollLeft':(curPos+width)},scrollTime);
 }
 
 function scrollToStart(){
     var scrollTime1=500;
-    $("html, body").animate({"scrollLeft":0},scrollTime1);
+    $("html,body").animate({"scrollLeft":0},scrollTime1);
 }
 
 function moveDodo(inner, outer){
@@ -90,8 +90,9 @@ window.onload = function() {
 
     scrollToStart();
 
-    $(document).keypress(function(e) {
-        if (e.which === 39 || e.keyCode === 39) {
+    $(document).keyup(function(e) {
+        console.log(e);
+        if(e.which === 39 || e.keyCode === 39) {
             scrollRight();
         }
         else
