@@ -3,30 +3,7 @@ var floatinV=0;
 var floatSmth= 1;
 var step = 1;
 var i = 0;
-function opacitiDes(opacity = [0, 0, 0, 0]){
-    $(".description1").css("opacity", opacity[0]);
-    $(".description2").css("opacity", opacity[1]);
-    $(".description3").css("opacity", opacity[2]);
-    $(".description4").css("opacity", opacity[3]);
-}
-function jump(st, inner, outer, state, arr=[], pos=[]){
-    if(st > arr[i]){
-        i++;
-        if(!jump(st, inner, outer, state, arr, pos)) {
-            if (state === 1) {
-                standDodo(inner, outer, pos[(i - 1) / 2]);
-                state--;
-                return true;
-            } else {
-                moveDodo(inner, outer);
-                state++;
-                return true;
-            }
-        }
-    }else
-    return false;
-
-}
+var tempScroll =0, left = false, num=0;
 function moveDodo(inner, outer){
     inner.css({
         "transform": "rotate(-180deg)",
@@ -41,11 +18,11 @@ function standDodo(inner, outer, pos){
     outer.css({
         "transform": "rotate(0deg)",
         "margin-left":"" + pos + "vw",
-        "transition": "all 0s ease"
+        "transition": "all 1s ease"
     });
     inner.css({
         "transform": "rotate(0deg)",
-        "transition": "all 0s ease"
+        "transition": "all 1s ease"
     });
 }
 function scrollDoc(e) {
@@ -84,6 +61,10 @@ $(window).scroll(function(){
         maxScroll=2500,
         h=$(window).innerHeight(),
         w=$(window).innerWidth();
+    if(st>tempScroll)
+        left = false;
+    else left = true;
+    tempScroll = st;
     if((w>765) && (w<1000) && (h>1200)) {
         dodost /= 1.5;
     }
@@ -115,6 +96,22 @@ $(window).scroll(function(){
 
     var inner = $(".dodo"),
         outer = $(".outer_dodo");
-    jump(st, inner, outer, 0, [0, 10, 200, 600, 800, 1200], [52, 104, 156]);
+    if(!left){
+        switch (num){
+            case 0:
+                standDodo(inner, outer, 10);
+                break;
+            case 1:
+                moveDodo(inner, outer);
+                break;
+            case 2:
+                standDodo(inner, outer, 52);
+                break;
+            case 3:
+                moveDodo(inner, outer);
+                break;
+        }
+    }
+
 
 });
