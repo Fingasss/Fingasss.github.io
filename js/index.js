@@ -39,13 +39,36 @@ function standDodo(inner, outer, pos){
     outer.css({
         "transform": "rotate(0deg)",
         "margin-left":"" + pos + "vw",
-        "transition": "margin-left 0s ease"
+        "transition": "all 0s ease"
     });
     inner.css({
         "transform": "rotate(0deg)",
         "transition": "all 0s ease"
     });
 }
+
+function moveDodoReverse(inner, outer, pos){
+    inner.css({
+        "transform": "rotate(-180deg)",
+        "transition": "all 0s ease"
+    });
+    outer.css({
+        "transform": "rotate(180deg)",
+        "margin-left": "" + pos + "vw",
+        "transition": "all 0s ease"
+    });
+}
+function standDodoReverse(inner, outer) {
+    outer.css({
+        "transform": "rotate(0deg)",
+        "transition": "margin-left 1.2s ease"
+    });
+    inner.css({
+        "transform": "rotate(0deg)",
+        "transition": "all 1.2s ease"
+    });
+}
+
 function scrollDoc(e) {
     if (!e) e = event;
     if (e.preventDefault) { e.preventDefault(); } else { e.returnValue = false; }
@@ -91,7 +114,6 @@ window.onload = function() {
     scrollToStart();
 
     $(document).keyup(function(e) {
-        console.log(e);
         if(e.which === 39 || e.keyCode === 39) {
             scrollRight();
         }
@@ -106,7 +128,7 @@ $(window).scroll(function(){
     var st = $(this).scrollLeft(),
         maxScroll=2500;
     var position = (100*st)/$(window).width();
-    left=!(st>tempScroll);
+    left=(st<tempScroll);
     tempScroll = st;
     if(st<maxScroll) {
 
@@ -124,7 +146,7 @@ $(window).scroll(function(){
         outer = $(".outer_dodo");
 
     if(!left){
-        if((position/12)>i&&i<10) {
+        if((position/12)>i&&i<8) {
             if (num) {
                 setTimeout(moveDodo(inner, outer), 1500);
                 i++;
@@ -136,6 +158,18 @@ $(window).scroll(function(){
             }
         }
     }else{
-
+        console.log(position/12, i);
+        if((position/12)>i&&i>0) {
+            console.log(i,position/12);
+            if (num) {
+                setTimeout(moveDodoReverse(inner, outer, arr[(i/2)-1]), 1500);
+                i--;
+                num--;
+            } else {
+                setTimeout(standDodoReverse(inner, outer), 1500);
+                i--;
+                num++;
+            }
+        }
     }
 });
