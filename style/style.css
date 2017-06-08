@@ -42,7 +42,7 @@ body{
 }
 .description {
     text-align: center;
-    font-size: 72px;
+    font-size: 4vw;
     color: #525252;
     opacity: 0;
     top:30vh;
@@ -91,7 +91,7 @@ a:active{
 }
 .named {
     margin-left:10vw;
-    font-size: 72px;
+    font-size: 4vw;
     max-width: 80vw;
     text-align: center;
     overflow: hidden;
