@@ -3,19 +3,40 @@ var floatinV=0;
 var floatSmth= 1;
 var step = 1;
 var tempScroll =0, left = false, i=0, arr=[0, 42, 84, 126, 168];
+var _callb = true;
+var inner = $(".dodo"),
+    outer = $(".outer_dodo"),
+    outerR = $(".outer_dodo_r");
 
 function scrollBack(){
     var curPos1=$(window).scrollLeft();
-    var width1=$(window).width()/10;
+    var width1=$(window).width()/4;
     var scrollTime1=500;
     if((curPos1-width1)>0)
         $("html,body").animate({"scrollLeft":curPos1-width1},scrollTime1);
     else $("html,body").animate({"scrollLeft":0}, scrollTime1);
 }
 
+function slideFText(next){
+    next.css({
+        "left":"40%",
+        "right":"40%",
+        "opacity":"1",
+        "transition":"all 1s ease"
+    });
+}
+
+function slideText(prev, next){
+    prev.css({
+        "opacity":"0",
+        "transition":"all 1s ease"
+    });
+    slideFText(next);
+}
+
 function scrollRight(){
     var curPos=$(window).scrollLeft();
-    var width=$(window).width()/10;
+    var width=$(window).width()/4;
     var scrollTime = 500;
     $('html,body').animate({'scrollLeft':(curPos+width)},scrollTime);
 }
@@ -40,15 +61,15 @@ function moveDodo(inner, outer, dir, _callb){
     }}, 500);
 }
 
-function standDodo(inner,outer, pos){
+function standDodo(inner, outer, pos){
     outer.css({
+        "transition": "all 0s ease",
         "transform": "rotate(0deg)",
-        "margin-left":"" + pos + "vw",
-        "transition": "all 0s ease"
+        "margin-left": pos + "vw"
     });
     inner.css({
-        "transform": "rotate(0deg)",
-        "transition": "all 0s ease"
+        "transition": "all 0s ease",
+        "transform": "rotate(0deg)"
     });
     return true;
 }
@@ -101,14 +122,45 @@ window.onload = function() {
 
     $(document).keyup(function(e) {
         if(e.which === 39 || e.keyCode === 39) {
-            scrollRight();
+            var int1 = setInterval(function(){
+                if(_callb){
+                    _callb=false;
+                    scrollRight();
+                    if(i<4) {
+                        if(i===0)
+                            slideFText($(".des1"));
+                        else if(i>0){
+                            slideText($(".des"+(i)),$(".des"+(i+1)));
+                        }
+                        var _callb1 = standDodo(inner, outer, arr[i]);
+                        document.getElementById('dod').className = 'outer_dodo';
+                        moveDodo(inner, outer, 1, _callb1);
+                        i++;
+                    }
+                    clearInterval(int1);
+                    _callb=true;
+                }
+            }, 500);
         }
         else
-        if(e.which === 37 || e.keyCode === 37){
-            scrollBack();
-        }
-    });
-};
+            if(e.which === 37 || e.keyCode === 37){
+               var int2 = setInterval(function() {
+                   if (_callb) {
+                       _callb = false;
+                       scrollBack();
+                       if (i > 0) {
+                           var _callb2 = standDodo(inner, outerR, arr[i + 1]);
+                           document.getElementById('dod').className = 'outer_dodo_r';
+                           moveDodo(inner, outerR, -1, _callb2);
+                           i--;
+                       }
+                       clearInterval(int2);
+                       _callb = true;
+                   }
+               }, 500);
+            }
+        });
+    };
 
 $(window).scroll(function(){
     var st = $(this).scrollLeft(),
@@ -128,7 +180,7 @@ $(window).scroll(function(){
             "transform": "translate(" + -st / 50 + "vw, 0%)"
         });
     }
-    var inner = $(".dodo"),
+/*    var inner = $(".dodo"),
         outer = $(".outer_dodo"),
         outerR = $(".outer_dodo_r");
 
@@ -159,5 +211,5 @@ $(window).scroll(function(){
             }},500);
             i--;
         }
-    }
+    }*/
 });

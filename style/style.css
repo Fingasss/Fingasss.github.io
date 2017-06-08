@@ -38,7 +38,16 @@ body{
     height: 60vh;
     width: 40vh;
     bottom: 5vh;
-    transform-origin: -12vw 30vh;
+    transform-origin: 0vw 30vh;
+}
+.description{
+    font-size: large;
+    color: #525252;
+    opacity: 0;
+    top:50vh;
+    left:100vw;
+    z-index: 25;
+    position: fixed;
 }
 
 a{
