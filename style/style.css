@@ -52,6 +52,20 @@ a:visited{
 a:active{
     color:#ffffff;
 }
+.tapme a{
+    text-align: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 3vw;
+    position: fixed;
+    border: solid 3px #ffffff;
+    border-radius: 200%;
+    padding: 1vh 2vw;
+    left:40%;
+    top: 40%;
+    max-width: 20%;
+    max-height: 20%;
+}
 .container{
     height: 98.5vh;
     background-image: linear-gradient(to top, #d2ecf0, #92d1e3);
