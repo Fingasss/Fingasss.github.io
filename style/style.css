@@ -1,18 +1,4 @@
-@media only screen and (max-width: 768px) and (min-height: 1200px){
-    .container{
-        height: 98.5vw;
-    }
-}
-@media screen and (max-width:1200px){
-    .description {
-        position: fixed;
-        bottom: 20vh;
-        left: 20vw;
-        right: 20vw;
-        color: #0c0c0c;
-        display: none;
-    }
-}
+
 @font-face {
     font-family: Arvo;
     src: url("../fonts/Arvo-Bold.ttf");
@@ -180,4 +166,17 @@ a:active{
 }
 *{
     transition: transform 1s;
+}
+@media only screen and (max-width: 1081px){
+    body{
+
+    }
+    .container{
+
+    }
+    .outer_dodo{
+        max-height: 30vh;
+        max-width: 30vw;
+        transform-origin: 36vw 15vh;
+    }
 }
