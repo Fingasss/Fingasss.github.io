@@ -2,7 +2,7 @@ var wDelta = 15;
 var floatinV=0;
 var floatSmth= 1;
 var step = 1;
-var tempScroll =0, left = false, num=0, i=0, arr=[0, 42, 84, 126, 168];
+var tempScroll =0, left = false, i=0, arr=[0, 42, 84, 126, 168];
 
 function scrollBack(){
     var curPos1=$(window).scrollLeft();
@@ -25,17 +25,22 @@ function scrollToStart(){
     $("html,body").animate({"scrollLeft":0},scrollTime1);
 }
 
-function moveDodo(inner, outer){
-    inner.css({
-        "transform": "rotate(-180deg)",
-        "transition": "all 1.2s ease"
-    });
-    outer.css({
-        "transform": "rotate(180deg)",
-        "transition": "all 1.2s ease"
-    });
+function moveDodo(inner, outer, dir, _callb){
+    var inte = setInterval(function(){if(_callb) {
+        inner.css({
+            "transform": "rotate(" + (-180 * dir) + "deg)",
+            "transition": "all 1.2s ease"
+        });
+        outer.css({
+            "transform": "rotate(" + (180 * dir) + "deg)",
+            "transition": "all 1.2s ease"
+        });
+        clearInterval(inte);
+        return false;
+    }}, 500);
 }
-function standDodo(inner, outer, pos){
+
+function standDodo(inner,outer, pos){
     outer.css({
         "transform": "rotate(0deg)",
         "margin-left":"" + pos + "vw",
@@ -45,28 +50,7 @@ function standDodo(inner, outer, pos){
         "transform": "rotate(0deg)",
         "transition": "all 0s ease"
     });
-}
-
-function moveDodoReverse(inner, outer, pos){
-    inner.css({
-        "transform": "rotate(-180deg)",
-        "transition": "all 0s ease"
-    });
-    outer.css({
-        "transform": "rotate(180deg)",
-        "margin-left": "" + pos + "vw",
-        "transition": "all 0s ease"
-    });
-}
-function standDodoReverse(inner, outer) {
-    outer.css({
-        "transform": "rotate(0deg)",
-        "transition": "margin-left 1.2s ease"
-    });
-    inner.css({
-        "transform": "rotate(0deg)",
-        "transition": "all 1.2s ease"
-    });
+    return true;
 }
 
 function scrollDoc(e) {
@@ -78,6 +62,7 @@ function scrollDoc(e) {
     if (this.attachEvent) return false;
     document.body.scrollLeft -= __delta * wDelta; // Chrome
 }
+
 function windowWHParalax(selector, st){
     $(selector).css({
         "transform": "translate(" + (st+floatinV*floatSmth*5) + "px,"+ Math.sin(st/100)*10 +"%)"
@@ -89,6 +74,7 @@ function windowWHParalax(selector, st){
     }
     floatinV++;
 }
+
 function windowHParalax(selector, st, koef){
     $(selector).css({
         "transform": "translate(" + (st+0.1) + "px,"+ Math.sin(st/100*koef)*10 +"%)"
@@ -128,7 +114,7 @@ $(window).scroll(function(){
     var st = $(this).scrollLeft(),
         maxScroll=2500;
     var position = (100*st)/$(window).width();
-    left=(st<tempScroll);
+    left=!(st>tempScroll);
     tempScroll = st;
     if(st<maxScroll) {
 
@@ -143,33 +129,35 @@ $(window).scroll(function(){
         });
     }
     var inner = $(".dodo"),
-        outer = $(".outer_dodo");
+        outer = $(".outer_dodo"),
+        outerR = $(".outer_dodo_r");
+
+    var _callb = false;
 
     if(!left){
-        if((position/12)>i&&i<8) {
-            if (num) {
-                setTimeout(moveDodo(inner, outer), 1500);
-                i++;
-                num--;
-            } else {
-                setTimeout(standDodo(inner, outer, arr[i / 2]), 1500);
-                i++;
-                num++;
-            }
+        if(i===0){
+            document.getElementById('dod').className = 'outer_dodo';
+            _callb = standDodo(inner, outer, arr[i]);
+            _callb = moveDodo(inner, outer, 1, _callb);
+            i++;
+        }
+        if((position/24)>i&&i<4&&i>0) {
+            _callb = standDodo(inner, outer, arr[i]);
+            document.getElementById('dod').className = 'outer_dodo';
+            _callb = moveDodo(inner, outer, 1, _callb);
+            i++;
         }
     }else{
-        console.log(position/12, i);
-        if((position/12)>i&&i>0) {
-            console.log(i,position/12);
-            if (num) {
-                setTimeout(moveDodoReverse(inner, outer, arr[(i/2)-1]), 1500);
-                i--;
-                num--;
-            } else {
-                setTimeout(standDodoReverse(inner, outer), 1500);
-                i--;
-                num++;
-            }
+        if((position/24)<i&&i>0) {
+            console.log(i);
+            _callb = standDodo(inner, outerR, arr[i+1]);
+            var inte = setInterval(function(){if(_callb) {
+                document.getElementById('dod').className = 'outer_dodo_r';
+                clearInterval(inte);
+                moveDodo(inner, outerR, -1, _callb);
+                inte--;
+            }},500);
+            i--;
         }
     }
 });

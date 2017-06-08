@@ -31,6 +31,15 @@ body{
     bottom: 5vh;
     transform-origin: 32vw 30vh;
 }
+.outer_dodo_r{
+    margin-left: 0;
+    z-index: 5;
+    position: absolute;
+    height: 60vh;
+    width: 40vh;
+    bottom: 5vh;
+    transform-origin: -12vw 30vh;
+}
 
 a{
     color:#0c0c0c;
@@ -127,17 +136,20 @@ a:active{
     margin-right: -50vw;
 }
 .appStore img{
+    top: 5vh;
     background: rgba(255,255,255,0.0);
     overflow: hidden;
-    width: 20vw;
+    height: 3vh;
     min-height: 40px;
 }
 .appStore img:hover{
-    width: 20vw;
+    min-height: 40px;
+    height: 3vh;
     box-shadow: 0 3px 5px rgba(5,7,8,0.5);
     border-radius: 10px;
 }
 .appStore img:active{
+    min-height: 40px;
     box-shadow: 0 2px 3px rgba(5,7,8,0.5);
     border-radius: 10px;
 }
@@ -154,7 +166,6 @@ a:active{
     text-align: center;
 }
 .facebook, .vk, .insta, .linkedIn{
-    margin-top: -5%;
     padding: 4px 4px;
 }
 *{
