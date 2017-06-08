@@ -40,7 +40,8 @@ body{
     bottom: 5vh;
     transform-origin: 0vw 30vh;
 }
-.description{
+.description {
+    text-align: center;
     font-size: large;
     color: #525252;
     opacity: 0;
