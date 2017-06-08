@@ -42,11 +42,11 @@ body{
 }
 .description {
     text-align: center;
-    font-size: large;
+    font-size: 72px;
     color: #525252;
     opacity: 0;
-    top:50vh;
-    left:100vw;
+    top:30vh;
+    left:50%;
     z-index: 25;
     position: fixed;
 }

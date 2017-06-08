@@ -19,8 +19,8 @@ function scrollBack(){
 
 function slideFText(next){
     next.css({
-        "left":"40%",
-        "right":"40%",
+        "left":"50%",
+        "right":"5%",
         "opacity":"1",
         "transition":"all 1s ease"
     });
