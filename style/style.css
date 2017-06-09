@@ -180,3 +180,13 @@ a:active{
 *{
     transition: transform 1s;
 }
+@media only screen and (max-width: 1081px){
+    .description{
+        font-size: 200%;
+    }
+}
+@media only screen and (max-width: 600px){
+    .description{
+        font-size: 150%;
+    }
+}
