@@ -8,15 +8,7 @@ var inner = $(".dodo"),
     outer = $(".outer_dodo"),
     outerR = $(".outer_dodo_r");
 
-function scrollBack(){
-    var curPos1=$(window).scrollLeft();
-    var width1=$(window).width()/4;
-    var scrollTime1=500;
-    if((curPos1-width1)>0)
-        $("html,body").animate({"scrollLeft":curPos1-width1},scrollTime1);
-    else $("html,body").animate({"scrollLeft":0}, scrollTime1);
-}
-
+//text fade
 function slideFText(next){
     next.css({
         "left":"50%",
@@ -34,6 +26,24 @@ function slideText(prev, next){
     slideFText(next);
 }
 
+//scrolling effects
+function scrollDoc(e) {
+    if (!e) e = event;
+    e.preventDefault ? e.preventDefault() : e.returnValue = false;
+    var __delta = e.wheelDelta || -e.detail;
+    __delta<0 ? jumpRight():jumpBack();
+    e = null;
+}
+
+function scrollBack(){
+    var curPos1=$(window).scrollLeft();
+    var width1=$(window).width()/4;
+    var scrollTime1=500;
+    if((curPos1-width1)>0)
+        $("html,body").animate({"scrollLeft":curPos1-width1},scrollTime1);
+    else $("html,body").animate({"scrollLeft":0}, scrollTime1);
+}
+
 function scrollRight(){
     var curPos=$(window).scrollLeft();
     var width=$(window).width()/4;
@@ -46,6 +56,7 @@ function scrollToStart(){
     $("html,body").animate({"scrollLeft":0},scrollTime1);
 }
 
+//dodo moving
 function moveDodo(inner, outer, dir, _callb){
     var inte = setInterval(function(){if(_callb) {
         inner.css({
@@ -74,16 +85,46 @@ function standDodo(inner, outer, pos){
     return true;
 }
 
-function scrollDoc(e) {
-    if (!e) e = event;
-    if (e.preventDefault) { e.preventDefault(); } else { e.returnValue = false; }
-    var __delta = e.wheelDelta || -e.detail;
-    __delta /= Math.abs(__delta);
-    document.documentElement.scrollLeft -= __delta * wDelta; // FF, Opera, IE
-    if (this.attachEvent) return false;
-    document.body.scrollLeft -= __delta * wDelta; // Chrome
+function jumpBack(){
+    var int2 = setInterval(function() {
+        if (_callb) {
+            _callb = false;
+            scrollBack();
+            if (i > 0) {
+                var _callb2 = standDodo(inner, outerR, arr[i + 1]);
+                document.getElementById('dod').className = 'outer_dodo_r';
+                moveDodo(inner, outerR, -1, _callb2);
+                i--;
+            }
+            clearInterval(int2);
+            _callb = true;
+        }
+    }, 500);
 }
 
+function jumpRight(){
+    var int1 = setInterval(function(){
+        if(_callb){
+            _callb=false;
+            scrollRight();
+            if(i<4) {
+                if(i===0)
+                    slideFText($(".des1"));
+                else if(i>0){
+                    slideText($(".des"+(i)),$(".des"+(i+1)));
+                }
+                var _callb1 = standDodo(inner, outer, arr[i]);
+                document.getElementById('dod').className = 'outer_dodo';
+                moveDodo(inner, outer, 1, _callb1);
+                i++;
+            }
+            clearInterval(int1);
+            _callb=true;
+        }
+    }, 500);
+}
+
+//parallax effects
 function windowWHParalax(selector, st){
     $(selector).css({
         "transform": "translate(" + (st+floatinV*floatSmth*5) + "px,"+ Math.sin(st/100)*10 +"%)"
@@ -122,42 +163,11 @@ window.onload = function() {
 
     $(document).keyup(function(e) {
         if(e.which === 39 || e.keyCode === 39) {
-            var int1 = setInterval(function(){
-                if(_callb){
-                    _callb=false;
-                    scrollRight();
-                    if(i<4) {
-                        if(i===0)
-                            slideFText($(".des1"));
-                        else if(i>0){
-                            slideText($(".des"+(i)),$(".des"+(i+1)));
-                        }
-                        var _callb1 = standDodo(inner, outer, arr[i]);
-                        document.getElementById('dod').className = 'outer_dodo';
-                        moveDodo(inner, outer, 1, _callb1);
-                        i++;
-                    }
-                    clearInterval(int1);
-                    _callb=true;
-                }
-            }, 500);
+            jumpRight();
         }
         else
             if(e.which === 37 || e.keyCode === 37){
-               var int2 = setInterval(function() {
-                   if (_callb) {
-                       _callb = false;
-                       scrollBack();
-                       if (i > 0) {
-                           var _callb2 = standDodo(inner, outerR, arr[i + 1]);
-                           document.getElementById('dod').className = 'outer_dodo_r';
-                           moveDodo(inner, outerR, -1, _callb2);
-                           i--;
-                       }
-                       clearInterval(int2);
-                       _callb = true;
-                   }
-               }, 500);
+                jumpBack();
             }
         });
     };

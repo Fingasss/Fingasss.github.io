@@ -52,6 +52,9 @@ a:visited{
 a:active{
     color:#ffffff;
 }
+.tapme{
+    display: none;
+}
 .tapme a{
     text-align: center;
     color: #ffffff;
@@ -182,6 +185,9 @@ a:active{
     transition: transform 1s;
 }
 @media only screen and (max-width: 1081px){
+    .tapme{
+        display: block;
+    }
     body{
 
     }
