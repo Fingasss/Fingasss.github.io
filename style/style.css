@@ -94,7 +94,7 @@ a:active{
     max-width: 80%;
     text-align: center;
     overflow: hidden;
-    color: #ff8989;
+    color: #000000;
     z-index: 0;
     transition: font-size 1s;
 }
