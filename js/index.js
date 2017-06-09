@@ -160,7 +160,7 @@ window.onload = function() {
     }
 
     scrollToStart();
-    console.log(html.height);
+    console.log(window.innerHeight);
     $(document).keyup(function(e) {
         if(e.which === 39 || e.keyCode === 39) {
             jumpRight();
