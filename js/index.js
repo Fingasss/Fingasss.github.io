@@ -8,6 +8,21 @@ var inner = $(".dodo"),
     outer = $(".outer_dodo"),
     outerR = $(".outer_dodo_r");
 
+//spikes
+function endedSpike(){
+    var waitingf = false;
+    waitingf = standDodo(inner, outer, 168);
+    var interval = setInterval(function(){
+        if(waitingf) {
+            inner.css({
+                "transition": "transform 1s ease",
+                "transform": "translateX(-10vw)"
+            });
+            clearInterval(interval);
+        }
+        }, 500);
+}
+
 //text fade
 function slideFText(next){
     next.css({
@@ -94,8 +109,9 @@ function jumpBack(){
             _callb = false;
             scrollBack();
             if (i > 0) {
-                if(i===0)
-                    slideFText($(".des1"));
+                if(i===0){
+                    document.getElementById('headertext').style.fontSize = "3vw";
+                    slideFText($(".des1"));}
                 else if(i>0){
                     slideText($(".des"+(i+1)),$(".des"+(i)));
                 }
@@ -119,14 +135,19 @@ function jumpRight(){
             _callb=false;
             scrollRight();
             if(i<4) {
-                if(i===0)
+                if(i===0) {
+                    document.getElementById('headertext').style.fontSize = "3.5vw";
                     slideFText($(".des1"));
+                }
                 else if(i>0){
                     slideText($(".des"+(i)),$(".des"+(i+1)));
                 }
                 var _callb1 = standDodo(inner, outer, arr[i]);
                 document.getElementById('dod').className = 'outer_dodo';
                 moveDodo(inner, outer, 1, _callb1);
+                i++;
+            }else if (i===4){
+                endedSpike();
                 i++;
             }
             clearInterval(int1);
