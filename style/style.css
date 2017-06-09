@@ -1,7 +1,7 @@
 
 @font-face {
-    font-family: Arvo;
-    src: url("../fonts/Arvo-Bold.ttf");
+    font-family: Troika;
+    src: url("../fonts/8944.otf");
 }
 html{
     height: 100%;
@@ -11,7 +11,7 @@ body{
     height: 100%;
     margin:0;
     width: 230%;
-    font-family: Arvo;
+    font-family: Troika;
 }
 .outer_dodo{
     margin-left: 0;
@@ -195,7 +195,7 @@ a:active{
 }
 @media only screen and (orientation: portrait){
     html{
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        height: 200%;
     }
 }
