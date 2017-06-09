@@ -181,6 +181,9 @@ a:active{
     transition: transform 1s;
 }
 @media only screen and (max-width: 1081px){
+    .tapme{
+        display: block;
+    }
     .description{
         font-size: 200%;
     }
