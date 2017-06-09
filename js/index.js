@@ -1,4 +1,4 @@
-var wDelta = 15;
+var block = false;
 var floatinV=0;
 var floatSmth= 1;
 var step = 1;
@@ -28,11 +28,14 @@ function slideText(prev, next){
 
 //scrolling effects
 function scrollDoc(e) {
-    if (!e) e = event;
-    e.preventDefault ? e.preventDefault() : e.returnValue = false;
-    var __delta = e.wheelDelta || -e.detail;
-    __delta<0 ? jumpRight():jumpBack();
-    e = null;
+    if(!block) {
+        block=true;
+        if (!e) e = event;
+        e.preventDefault ? e.preventDefault() : e.returnValue = false;
+        var __delta = e.wheelDelta || -e.detail;
+        __delta < 0 ? jumpRight() : jumpBack();
+        e = null;
+    }
 }
 
 function scrollBack(){
@@ -98,6 +101,7 @@ function jumpBack(){
             }
             clearInterval(int2);
             _callb = true;
+            block=false;
         }
     }, 500);
 }
@@ -120,6 +124,7 @@ function jumpRight(){
             }
             clearInterval(int1);
             _callb=true;
+            block=false;
         }
     }, 500);
 }
