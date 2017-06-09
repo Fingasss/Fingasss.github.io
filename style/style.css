@@ -189,10 +189,10 @@ a:active{
         display: block;
     }
     body{
-
+        width: 230%;
     }
     .container{
-
+        height: 100%;
     }
     .outer_dodo{
         max-height: 30vh;
