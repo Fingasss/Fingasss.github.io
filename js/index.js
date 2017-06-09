@@ -160,7 +160,7 @@ window.onload = function() {
     }
 
     scrollToStart();
-
+    console.log(html.height);
     $(document).keyup(function(e) {
         if(e.which === 39 || e.keyCode === 39) {
             jumpRight();
@@ -190,36 +190,4 @@ $(window).scroll(function(){
             "transform": "translate(" + -st / 50 + "vw, 0%)"
         });
     }
-/*    var inner = $(".dodo"),
-        outer = $(".outer_dodo"),
-        outerR = $(".outer_dodo_r");
-
-    var _callb = false;
-
-    if(!left){
-        if(i===0){
-            document.getElementById('dod').className = 'outer_dodo';
-            _callb = standDodo(inner, outer, arr[i]);
-            _callb = moveDodo(inner, outer, 1, _callb);
-            i++;
-        }
-        if((position/24)>i&&i<4&&i>0) {
-            _callb = standDodo(inner, outer, arr[i]);
-            document.getElementById('dod').className = 'outer_dodo';
-            _callb = moveDodo(inner, outer, 1, _callb);
-            i++;
-        }
-    }else{
-        if((position/24)<i&&i>0) {
-            console.log(i);
-            _callb = standDodo(inner, outerR, arr[i+1]);
-            var inte = setInterval(function(){if(_callb) {
-                document.getElementById('dod').className = 'outer_dodo_r';
-                clearInterval(inte);
-                moveDodo(inner, outerR, -1, _callb);
-                inte--;
-            }},500);
-            i--;
-        }
-    }*/
 });
