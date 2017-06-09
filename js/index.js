@@ -94,6 +94,11 @@ function jumpBack(){
             _callb = false;
             scrollBack();
             if (i > 0) {
+                if(i===0)
+                    slideFText($(".des1"));
+                else if(i>0){
+                    slideText($(".des"+(i+1)),$(".des"+(i)));
+                }
                 var _callb2 = standDodo(inner, outerR, arr[i + 1]);
                 document.getElementById('dod').className = 'outer_dodo_r';
                 moveDodo(inner, outerR, -1, _callb2);
