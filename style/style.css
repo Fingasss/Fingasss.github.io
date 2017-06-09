@@ -190,3 +190,9 @@ a:active{
         font-size: 150%;
     }
 }
+@media only screen and (orientation: portrait){
+    html{
+        width: 100vh;
+        height: 100vw;
+    }
+}
