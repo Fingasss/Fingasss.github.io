@@ -2,7 +2,7 @@ var block = false;
 var floatinV=0;
 var floatSmth= 1;
 var step = 1;
-var tempScroll =0, left = false, i=0, arr=[0, 42, 84, 126, 168];
+var tempScroll =0, left = false, i=0, arr=[0, 16, 32, 49, 63];
 var _callb = true;
 var inner = $(".dodo"),
     outer = $(".outer_dodo"),
@@ -16,7 +16,7 @@ function endedSpike(){
         if(waitingf) {
             inner.css({
                 "transition": "transform 1s ease",
-                "transform": "translateX(-10vw)"
+                "transform": "translateX(-10%)"
             });
             clearInterval(interval);
         }
@@ -94,7 +94,7 @@ function standDodo(inner, outer, pos){
     outer.css({
         "transition": "all 0s ease",
         "transform": "rotate(0deg)",
-        "margin-left": pos + "vw"
+        "margin-left": pos + "%"
     });
     inner.css({
         "transition": "all 0s ease",
@@ -108,16 +108,13 @@ function jumpBack(){
         if (_callb) {
             _callb = false;
             scrollBack();
-            if (i > 0) {
-                if(i===0){
-                    document.getElementById('headertext').style.fontSize = "3vw";
-                    slideFText($(".des1"));}
-                else if(i>0){
+            if (i > 1) {
+                if(i>0){
                     slideText($(".des"+(i+1)),$(".des"+(i)));
                 }
-                var _callb2 = standDodo(inner, outerR, arr[i + 1]);
+                var _callb2 = standDodo(inner, outerR, arr[i]);
                 document.getElementById('dod').className = 'outer_dodo_r';
-                moveDodo(inner, outerR, -1, _callb2);
+                moveDodo(inner, outerR, 1, _callb2);
                 i--;
             }
             clearInterval(int2);
@@ -136,7 +133,8 @@ function jumpRight(){
             scrollRight();
             if(i<4) {
                 if(i===0) {
-                    document.getElementById('headertext').style.fontSize = "3.5vw";
+                    document.getElementById('headertext').style.fontSize = "200%";
+                    document.getElementById('headertext').style.marginLeft = "30%";
                     slideFText($(".des1"));
                 }
                 else if(i>0){
@@ -145,9 +143,6 @@ function jumpRight(){
                 var _callb1 = standDodo(inner, outer, arr[i]);
                 document.getElementById('dod').className = 'outer_dodo';
                 moveDodo(inner, outer, 1, _callb1);
-                i++;
-            }else if (i===4){
-                endedSpike();
                 i++;
             }
             clearInterval(int1);
@@ -195,7 +190,7 @@ window.onload = function() {
     }
 
     scrollToStart();
-    console.log(window.outerHeight);
+
     $(document).keyup(function(e) {
         if(e.which === 39 || e.keyCode === 39) {
             jumpRight();
@@ -210,19 +205,15 @@ window.onload = function() {
 $(window).scroll(function(){
     var st = $(this).scrollLeft(),
         maxScroll=2500;
-    var position = (100*st)/$(window).width();
     left=!(st>tempScroll);
     tempScroll = st;
     if(st<maxScroll) {
 
         windowWHParalax(".paralaxed1", st);
-        windowHParalax(".cloud1", st, 2);
-        windowHParalax(".cloud2", st, 3);
-        $(".named").css({
-           "transform": "translate(" + st + "px,0%)"
-        });
+        windowHParalax(".cloud1", st, 3);
+        windowHParalax(".cloud2", st, 10);
         $(".paralaxed3").css({
-            "transform": "translate(" + -st / 50 + "vw, 0%)"
+            "transform": "translate(" + -st / 50 + "%, 0%)"
         });
     }
 });
