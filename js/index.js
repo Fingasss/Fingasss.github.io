@@ -105,8 +105,10 @@ function jumpBack(){
                 i--;
             }
             clearInterval(int2);
-            _callb = true;
-            block=false;
+            setTimeout(function () {
+                _callb=true;
+                block=false;
+            }, 1200);
         }
     }, 500);
 }
@@ -128,8 +130,10 @@ function jumpRight(){
                 i++;
             }
             clearInterval(int1);
-            _callb=true;
-            block=false;
+            setTimeout(function () {
+                _callb=true;
+                block=false;
+            }, 1200);
         }
     }, 500);
 }
