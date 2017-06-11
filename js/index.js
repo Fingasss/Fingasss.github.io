@@ -2,26 +2,11 @@ var block = false;
 var floatinV=0;
 var floatSmth= 1;
 var step = 1;
-var tempScroll =0, left = false, i=0, arr=[0, 16, 32, 49, 63];
+var tempScroll =0, left = false, i=0, arr=[0, 100, 200, 300, 400];
 var _callb = true;
 var inner = $(".dodo"),
     outer = $(".outer_dodo"),
     outerR = $(".outer_dodo_r");
-
-//spikes
-function endedSpike(){
-    var waitingf = false;
-    waitingf = standDodo(inner, outer, 168);
-    var interval = setInterval(function(){
-        if(waitingf) {
-            inner.css({
-                "transition": "transform 1s ease",
-                "transform": "translateX(-10%)"
-            });
-            clearInterval(interval);
-        }
-        }, 500);
-}
 
 //text fade
 function slideFText(next){
@@ -75,32 +60,25 @@ function scrollToStart(){
 }
 
 //dodo moving
-function moveDodo(inner, outer, dir, _callb){
-    var inte = setInterval(function(){if(_callb) {
-        inner.css({
-            "transform": "rotate(" + (-180 * dir) + "deg)",
-            "transition": "all 1.2s ease"
-        });
-        outer.css({
-            "transform": "rotate(" + (180 * dir) + "deg)",
-            "transition": "all 1.2s ease"
-        });
+function moveDodo(){
+    var inte = setInterval(function(){
+        var elem = document.getElementById("dod");
+        var posh = 10,
+        posv = arr[i];
+        var id = setInterval(frame, 10);
+        function frame(){
+          if(posh===100){
+            clearInterval(id);
+          }else{
+            posv++;
+            posh++;
+            elem.style.left = posv/10 +'%';
+            elem.style.bottom = (Math.sin(posh/37)*20) + '%';
+          }
+        }
         clearInterval(inte);
         return false;
-    }}, 500);
-}
-
-function standDodo(inner, outer, pos){
-    outer.css({
-        "transition": "all 0s ease",
-        "transform": "rotate(0deg)",
-        "margin-left": pos + "%"
-    });
-    inner.css({
-        "transition": "all 0s ease",
-        "transform": "rotate(0deg)"
-    });
-    return true;
+    }, 500);
 }
 
 function jumpBack(){
@@ -112,7 +90,6 @@ function jumpBack(){
                 if(i>0){
                     slideText($(".des"+(i+1)),$(".des"+(i)));
                 }
-                var _callb2 = standDodo(inner, outerR, arr[i]);
                 document.getElementById('dod').className = 'outer_dodo_r';
                 moveDodo(inner, outerR, 1, _callb2);
                 i--;
@@ -141,9 +118,8 @@ function jumpRight(){
                 else if(i>0){
                     slideText($(".des"+(i)),$(".des"+(i+1)));
                 }
-                var _callb1 = standDodo(inner, outer, arr[i]);
                 document.getElementById('dod').className = 'outer_dodo';
-                moveDodo(inner, outer, 1, _callb1);
+                moveDodo(inner, outer, 1);
                 i++;
             }
             clearInterval(int1);
