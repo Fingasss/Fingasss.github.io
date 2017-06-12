@@ -61,7 +61,7 @@ a:active{
     border: solid 3px #ffffff;
     border-radius: 200%;
     left:40%;
-    top: 40%;
+    top: 50%;
     max-width: 20%;
     max-height: 20%;
 }
@@ -171,9 +171,18 @@ a:active{
 *{
     transition: transform 1s;
 }
-@media only screen and (max-width: 1081px){
+@media only screen and (max-width: 1023px){
+    .outer_dodo{
+        position: absolute;
+        height: 30%;
+        width: 30%;
+        bottom: 10%;
+    }
+    .blur_clouds img{
+        max-width: 90%;
+    }
     .clouds_b img {
-        width:25%;
+        width:50%;
     }
     .tapme{
         display: block;
@@ -193,6 +202,4 @@ a:active{
     .outer_dodo{
         bottom: 5%;
     }
-}
-@media only screen and (orientation: portrait){
 }
