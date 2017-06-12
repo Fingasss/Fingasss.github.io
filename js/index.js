@@ -63,21 +63,9 @@ function centrateDodo(){
     var dodo=document.getElementById('dod');
     var rec =dodo.getBoundingClientRect().left,
     width = window.innerWidth;
-    console.log(rec, width*0.4, width*0.6);
-    if(rec<(width*0.4)){
-        var int=setInterval(function(){
-            dodo.style.left++;
-            if(dodo.style.left>width*0.3)
-                clearInterval(int);
-        }, 10);
-    }
-    else if(rec>(width*0.6)){
-        var int1=setInterval(function(){
-            dodo.style.left--;
-            if(dodo.style.left<width*0.6)
-                clearInterval(int1);
-        }, 10);
-    }
+        $("#dod").css({
+          "transform":"translate("+(width/2-rec)+"px,0)"
+        });
 }
 
 function moveDodo(){
@@ -139,7 +127,7 @@ function jumpBack(){
                 i--;
             }
             clearInterval(int2);
-            setTimeout(centrateDodo(), 3000);
+            setTimeout(centrateDodo(), 1200);
        //     setTimeout(window.scrollTo(parseInt(document.getElementById("dod").style.left)*window.innerWidth/40-50*window.innerWidth/100,0),1500);
             setTimeout(function () {
                 _callb=true;
