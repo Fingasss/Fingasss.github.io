@@ -215,7 +215,8 @@ window.onload = function() {
     };
 
 $(window).scroll(function(){
-    window.scrollTo(parseInt(document.getElementById("dod").style.left)*window.innerWidth/40,0);
+    if(_callb)
+    setTimeout(window.scrollTo(parseInt(document.getElementById("dod").style.left)*window.innerWidth/40,0),3000);
     var st = $(this).scrollLeft(),
         maxScroll=2500;
     left=!(st>tempScroll);
