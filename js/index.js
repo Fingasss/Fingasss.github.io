@@ -24,6 +24,7 @@ function activateBackHelp(){
 //text fade
 function slideFText(next){
     next.css({
+        "display":"block",
         "left":"50%",
         "right":"5%",
         "opacity":"1",
@@ -34,7 +35,8 @@ function slideFText(next){
 function slideText(prev, next){
     prev.css({
         "opacity":"0",
-        "transition":"all 1s ease"
+        "transition":"all 1s ease",
+        "display":"none"
     });
     slideFText(next);
 }

@@ -25,6 +25,9 @@ body{
     width: 230%;
     font-family: Troika;
 }
+.description{
+    display: none;
+}
 .outer_dodo{
     left:20%;
     z-index: 5;
@@ -137,7 +140,7 @@ a:active{
     top: 60%;
 }
 .jumpForward{
-    display:none;
+    cursor: pointer;
     position:fixed;
     height: 100%;
     width: 50%;
@@ -146,14 +149,14 @@ a:active{
     opacity: 0;
 }
 .jumpForwardActive{
-    display:block;
+    cursor: pointer;
     position:fixed;
     height: 100%;
     width: 50%;
     left: 50%;
     top:0;
     background-color: #525252;
-    opacity: 0.1;
+    opacity: 0.2;
     color:#ffffff;
 }
 .jumpForwardActive img{
@@ -162,7 +165,11 @@ a:active{
     top:40%;
     right:15%;
 }
+.jumpForwardActive:hover{
+    box-shadow: -6px 6px 10px rgba(5,7,8,0.7);
+}
 .jumpBack{
+    cursor: pointer;
     position:fixed;
     height: 100%;
     width: 50%;
@@ -171,6 +178,7 @@ a:active{
     opacity: 0;
 }
 .jumpBackActive{
+    cursor: pointer;
     position:fixed;
     height: 100%;
     width: 50%;
@@ -179,6 +187,9 @@ a:active{
     background-color: #525252;
     opacity: 0.2;
     color:#ffffff;
+}
+.jumpBackActive:hover{
+    box-shadow: 6px 6px 10px rgba(5,7,8,0.7);
 }
 .jumpBack img,.jumpBackActive img{
     width: 20%;
