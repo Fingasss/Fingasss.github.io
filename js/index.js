@@ -31,8 +31,8 @@ function scrollDoc(e) {
         e.preventDefault ? e.preventDefault() : e.returnValue = false;
         var __delta = e.wheelDelta || -e.detail;
         __delta < 0 ? jumpRight() : jumpBack();
-        e = null;
     }
+    return false;
 }
 
 function scrollBack(){
@@ -148,8 +148,10 @@ function jumpRight(){
                 console.log(i);
                 moveDodo();
                 i=5;
-                document.getElementById('left_a').style.display = "block";
-                document.getElementById('left_a').style.opacity = 1;
+                if(window.innerWidth>800) {
+                    document.getElementById('left_a').style.display = "block";
+                    document.getElementById('left_a').style.opacity = 1;
+                }
                 document.getElementById('arrow').style.display = "block";
                 document.getElementById('arrow').style.opacity = 1;
             }
@@ -195,6 +197,7 @@ window.onload = function() {
     } else {
         html.addEventListener("DOMMouseScroll", scrollDoc, false); // FF
         html.addEventListener("mousewheel", scrollDoc, false); // Chrome
+        html.addEventListener("wheel", scrollDoc);
     }
 
     scrollToStart();

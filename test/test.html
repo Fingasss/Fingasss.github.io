@@ -1,15 +1,40 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Test for animation</title>
-  <meta charset="utf-8" />
-  <link rel="stylesheet" href="test.css"/>
+  <title>Event Propagation</title>
+
+  <style>
+    #t-daddy { border: 1px solid red }
+    #c1 { background-color: pink; }
+  </style>
+
+  <script>
+      function stopEvent(ev) {
+          c2 = document.getElementById("c2");
+          c2.innerHTML = "hello";
+
+          // this ought to keep t-daddy from getting the click.
+          ev.stopPropagation();
+          alert("event propagation halted.");
+      }
+
+      function load() {
+          elem = document.getElementById("tbl1");
+          elem.addEventListener("click", stopEvent, false);
+      }
+  </script>
 </head>
-<body>
-  <div id=field>
-    <div id="sq"></div>
-    <button onclick="jump()">btn</button>
-  </div>
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="../js/customanimate.js"></script>
+
+<body onload="load();">
+
+<table id="t-daddy" onclick="alert('hi');">
+  <tr id="tbl1">
+    <td id="c1">one</td>
+  </tr>
+  <tr>
+    <td id="c2">two</td>
+  </tr>
+</table>
+
 </body>
 </html>
