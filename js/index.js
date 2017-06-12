@@ -119,7 +119,7 @@ function jumpBack(){
             setTimeout(function () {
                 _callb=true;
                 block=false;
-            }, 1200);
+            }, 600);
         }
     }, 500);
 }
@@ -159,7 +159,7 @@ function jumpRight(){
             setTimeout(function () {
                 _callb=true;
                 block=false;
-            }, 1200);
+            }, 600);
         }
     }, 500);
 }
@@ -199,13 +199,6 @@ window.onload = function() {
         html.addEventListener("mousewheel", scrollDoc, false); // Chrome
         html.addEventListener("onwheel", scrollDoc, false);
         html.addEventListener("MozMousePixelScroll",scrollDoc,false);
-    }
-    function clearSelection() {
-        if (window.getSelection) {
-            window.getSelection().removeAllRanges();
-        } else { // старый IE
-            document.selection.empty();
-        }
     }
 
     scrollToStart();
