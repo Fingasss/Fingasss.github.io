@@ -216,7 +216,7 @@ window.onload = function() {
 
 $(window).scroll(function(){
     if(_callb)
-    setTimeout(window.scrollTo(parseInt(document.getElementById("dod").style.left)*window.innerWidth/40,0),3000);
+    setTimeout(window.scrollTo(parseInt(document.getElementById("dod").style.left)*window.innerWidth/40-50*window.innerWidth/100,0),3000);
     var st = $(this).scrollLeft(),
         maxScroll=2500;
     left=!(st>tempScroll);
