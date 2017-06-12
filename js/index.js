@@ -64,7 +64,7 @@ function centrateDodo(){
     var rec =dodo.getBoundingClientRect().left,
     width = window.innerWidth;
         $("#dod").css({
-          "transform":"translate("+(width/2-rec)+"px,0)"
+          "transform":"translate("+(width/2-rec)+"px,0)",
         });
 }
 
@@ -81,7 +81,7 @@ function moveDodo(){
             posv++;
             posh++;
             elem.style.left = posv/10 +'%';
-            elem.style.bottom = (Math.sin(posh/37)*20) + '%';
+            elem.style.bottom = (Math.sin(posh/37)*30) + '%';
           }
         }
         clearInterval(inte);
@@ -158,7 +158,6 @@ function jumpRight(){
                 i++;
             }
             else if(i===4){
-                console.log(i);
                 moveDodo();
                 i=5;
                 if(window.innerWidth>800) {
@@ -170,7 +169,7 @@ function jumpRight(){
 
             }
             clearInterval(int1);
-            centrateDodo();
+            setTimeout(centrateDodo(), 300);
     //        setTimeout(window.scrollTo(parseInt(document.getElementById("dod").style.left)*window.innerWidth/40-50*window.innerWidth/100,0),1500);
             setTimeout(function () {
                 _callb=true;
@@ -216,11 +215,11 @@ window.onload = function() {
         html.addEventListener("onwheel", scrollDoc, false);
         html.addEventListener("MozMousePixelScroll",scrollDoc,false);
     }
-    setInterval(function(){
+    /*setInterval(function(){
         if(_callb){
             centrateDodo();
         }
-    }, 300);
+    }, 300);*/
 
     scrollToStart();
 
