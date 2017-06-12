@@ -89,9 +89,8 @@ a:active{
 .named_small {
     position: fixed;
     margin-left:30%;
-    margin-right: 30%;
     font-size: 200%;
-    max-width: 80%;
+    max-width: 70%;
     text-align: center;
     overflow: hidden;
     color: #000000;
@@ -198,6 +197,7 @@ a:active{
         display: block;
     }
     .description{
+        top:40%;
         font-size: 200%;
     }
 }
