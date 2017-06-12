@@ -144,7 +144,7 @@ function jumpRight(){
                 moveDodo();
                 i++;
             }
-            else{
+            else if(i===4){
                 console.log(i);
                 moveDodo();
                 i=5;
@@ -228,4 +228,8 @@ $(window).scroll(function(){
             "transform": "translate(" + -st / 50 + "%, 0%)"
         });
     }
+});
+$(".jumpBack").click(function(event){
+    event.stopPropagation();
+        jumpBack();
 });

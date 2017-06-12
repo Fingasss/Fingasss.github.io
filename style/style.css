@@ -126,6 +126,14 @@ a:active{
     width: 200%;
     top: 60%;
 }
+.jumpBack{
+    position:fixed;
+    height: 100%;
+    width: 10%;
+    left: 0;
+    top:0;
+    opacity: 0;
+}
 .blur_clouds{
     position: absolute;
     filter: blur(5px);
