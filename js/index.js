@@ -137,12 +137,17 @@ function jumpRight(){
                 else if(i>0){
                     slideText($(".des"+(i)),$(".des"+(i+1)));
                 }
+                document.getElementById('arrow').style.display = "none";
+                document.getElementById('arrow').style.opacity = 0;
                 moveDodo();
                 i++;
             }
             else{
+                console.log(i);
                 moveDodo();
                 i=5;
+                document.getElementById('arrow').style.display = "block";
+                document.getElementById('arrow').style.opacity = 1;
             }
             clearInterval(int1);
             setTimeout(function () {
