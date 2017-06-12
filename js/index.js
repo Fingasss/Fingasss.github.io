@@ -2,7 +2,7 @@ var block = false;
 var floatinV=0;
 var floatSmth= 1;
 var step = 1;
-var tempScroll =0, left = false, i=0, arr=[0, 100, 200, 300, 400, 500, 600];
+var tempScroll =0, left = false, i=0, arr=[100, 200, 300, 400, 500, 600, 700];
 var _callb = true;
 
 //text fade

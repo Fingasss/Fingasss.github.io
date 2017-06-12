@@ -16,7 +16,7 @@ body{
     font-family: Troika;
 }
 .outer_dodo{
-    margin-left: 0;
+    left:20%;
     z-index: 5;
     position: absolute;
     height: 50%;
