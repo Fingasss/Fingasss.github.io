@@ -20,6 +20,7 @@ html{
     overflow: hidden;
 }
 body{
+    cursor: pointer;
     height: 100%;
     margin:0;
     width: 230%;

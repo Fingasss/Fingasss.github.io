@@ -3,23 +3,7 @@ var floatinV=0;
 var floatSmth= 1;
 var step = 1;
 var tempScroll =0, left = false, i=0, arr=[100, 200, 300, 400, 500, 600, 700];
-var _callb = true, firstb=0, firstf=0;
-
-//helpers
-function removeBackHelp(){
-    if(firstb===1) {
-        document.getElementById('backward').classList.add('jumpBack');
-        document.getElementById('backward').classList.remove('jumpBackActive');
-        firstb++;
-    }
-}
-function activateBackHelp(){
-    if(firstb<1){
-        document.getElementById('backward').classList.add('jumpBackActive');
-        document.getElementById('backward').classList.remove('jumpBack');
-        firstb++;
-    }
-}
+var _callb = true;
 
 //text fade
 function slideFText(next){
@@ -75,6 +59,27 @@ function scrollToStart(){
 }
 
 //dodo moving
+function centrateDodo(){
+    var dodo=document.getElementById('dod');
+    var rec =dodo.getBoundingClientRect().left,
+    width = window.innerWidth;
+    console.log(rec, width*0.4, width*0.6);
+    if(rec<(width*0.4)){
+        var int=setInterval(function(){
+            dodo.style.left++;
+            if(dodo.style.left>width*0.3)
+                clearInterval(int);
+        }, 10);
+    }
+    else if(rec>(width*0.6)){
+        var int1=setInterval(function(){
+            dodo.style.left--;
+            if(dodo.style.left<width*0.6)
+                clearInterval(int1);
+        }, 10);
+    }
+}
+
 function moveDodo(){
     var inte = setInterval(function(){
         var elem = document.getElementById("dod");
@@ -131,10 +136,11 @@ function jumpBack(){
                 document.getElementById('arrow').style.opacity = 0;
                 document.getElementById('left_a').style.display = "none";
                 document.getElementById('left_a').style.opacity = 0;
-                removeBackHelp();
                 i--;
             }
             clearInterval(int2);
+            setTimeout(centrateDodo(), 3000);
+       //     setTimeout(window.scrollTo(parseInt(document.getElementById("dod").style.left)*window.innerWidth/40-50*window.innerWidth/100,0),1500);
             setTimeout(function () {
                 _callb=true;
                 block=false;
@@ -150,8 +156,6 @@ function jumpRight(){
             scrollRight();
             if(i<4) {
                 if(i===0) {
-                    document.getElementById('forward').classList.add('jumpForward');
-                    document.getElementById('forward').classList.remove('jumpForwardActive');
                     document.getElementById('finger').style.display = "none";
                     document.getElementById('headertext').classList.add('named_small');
                     document.getElementById('headertext').classList.remove('named');
@@ -176,10 +180,10 @@ function jumpRight(){
                 document.getElementById('arrow').style.display = "block";
                 document.getElementById('arrow').style.opacity = 1;
 
-            }else if(window.innerWidth>800) {
-                activateBackHelp();
             }
             clearInterval(int1);
+            centrateDodo();
+    //        setTimeout(window.scrollTo(parseInt(document.getElementById("dod").style.left)*window.innerWidth/40-50*window.innerWidth/100,0),1500);
             setTimeout(function () {
                 _callb=true;
                 block=false;
@@ -224,6 +228,11 @@ window.onload = function() {
         html.addEventListener("onwheel", scrollDoc, false);
         html.addEventListener("MozMousePixelScroll",scrollDoc,false);
     }
+    setInterval(function(){
+        if(_callb){
+            centrateDodo();
+        }
+    }, 300);
 
     scrollToStart();
 
@@ -239,8 +248,6 @@ window.onload = function() {
     };
 
 $(window).scroll(function(){
-    if(_callb)
-    setTimeout(window.scrollTo(parseInt(document.getElementById("dod").style.left)*window.innerWidth/40-50*window.innerWidth/100,0),3000);
     var st = $(this).scrollLeft(),
         maxScroll=2500;
     left=!(st>tempScroll);
