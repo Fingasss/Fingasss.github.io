@@ -109,6 +109,10 @@ function jumpBack(){
                     slideText($(".des"+(i+1)),$(".des"+(i)));
                 }
                 backDodo();
+                document.getElementById('arrow').style.display = "none";
+                document.getElementById('arrow').style.opacity = 0;
+                document.getElementById('left_a').style.display = "none";
+                document.getElementById('left_a').style.opacity = 0;
                 i--;
             }
             clearInterval(int2);
@@ -137,8 +141,6 @@ function jumpRight(){
                 else if(i>0){
                     slideText($(".des"+(i)),$(".des"+(i+1)));
                 }
-                document.getElementById('arrow').style.display = "none";
-                document.getElementById('arrow').style.opacity = 0;
                 moveDodo();
                 i++;
             }
@@ -146,6 +148,8 @@ function jumpRight(){
                 console.log(i);
                 moveDodo();
                 i=5;
+                document.getElementById('left_a').style.display = "block";
+                document.getElementById('left_a').style.opacity = 1;
                 document.getElementById('arrow').style.display = "block";
                 document.getElementById('arrow').style.opacity = 1;
             }
