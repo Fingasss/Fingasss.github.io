@@ -127,7 +127,8 @@ function jumpRight(){
             scrollRight();
             if(i<4) {
                 if(i===0) {
-                    document.getElementById('headertext').style.fontSize = "200%";
+                    document.getElementById('headertext').classList.add('named_small');
+                    document.getElementById('headertext').classList.remove('named');
                     document.getElementById('headertext').style.marginLeft = "30%";
                     document.getElementById('headertext').style.marginRight = "30%";
                     slideFText($(".des1"));

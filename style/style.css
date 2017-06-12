@@ -89,6 +89,18 @@ a:active{
     z-index: 0;
     transition: font-size 1s;
 }
+.named_small {
+    position: fixed;
+    margin-left:30%;
+    margin-right: 30%;
+    font-size: 200%;
+    max-width: 80%;
+    text-align: center;
+    overflow: hidden;
+    color: #000000;
+    z-index: 0;
+    transition: font-size 1s;
+}
 .clouds_b img{
 
     overflow: hidden;
@@ -137,6 +149,7 @@ a:active{
 }
 .appStore img{
     top: 5%;
+    margin-top: 5%;
     background: rgba(255,255,255,0.0);
     overflow: hidden;
     height: 3%;
@@ -185,7 +198,7 @@ a:active{
         width:50%;
     }
     .tapme{
-        display: block;
+        display: none;
     }
     .description{
         font-size: 200%;
@@ -203,3 +216,18 @@ a:active{
         bottom: 5%;
     }
 }
+@media only screen and (max-width: 360px){
+    .facebook, .vk, .insta, .linkedIn{
+        padding: 0;
+    }
+    .linkedIn{
+        display:none;
+    }
+    .named{
+        font-size: 200%;
+    }
+    .named_small{
+        font-size: 100%;
+    }
+}
+
