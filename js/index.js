@@ -3,7 +3,23 @@ var floatinV=0;
 var floatSmth= 1;
 var step = 1;
 var tempScroll =0, left = false, i=0, arr=[100, 200, 300, 400, 500, 600, 700];
-var _callb = true;
+var _callb = true, firstb=0, firstf=0;
+
+//helpers
+function removeBackHelp(){
+    if(firstb===1) {
+        document.getElementById('backward').classList.add('jumpBack');
+        document.getElementById('backward').classList.remove('jumpBackActive');
+        firstb++;
+    }
+}
+function activateBackHelp(){
+    if(firstb<1){
+        document.getElementById('backward').classList.add('jumpBackActive');
+        document.getElementById('backward').classList.remove('jumpBack');
+        firstb++;
+    }
+}
 
 //text fade
 function slideFText(next){
@@ -113,6 +129,7 @@ function jumpBack(){
                 document.getElementById('arrow').style.opacity = 0;
                 document.getElementById('left_a').style.display = "none";
                 document.getElementById('left_a').style.opacity = 0;
+                removeBackHelp();
                 i--;
             }
             clearInterval(int2);
@@ -131,6 +148,8 @@ function jumpRight(){
             scrollRight();
             if(i<4) {
                 if(i===0) {
+                    document.getElementById('forward').classList.add('jumpForward');
+                    document.getElementById('forward').classList.remove('jumpForwardActive');
                     document.getElementById('finger').style.display = "none";
                     document.getElementById('headertext').classList.add('named_small');
                     document.getElementById('headertext').classList.remove('named');
@@ -154,6 +173,9 @@ function jumpRight(){
                 }
                 document.getElementById('arrow').style.display = "block";
                 document.getElementById('arrow').style.opacity = 1;
+
+            }else{
+                    activateBackHelp();
             }
             clearInterval(int1);
             setTimeout(function () {
