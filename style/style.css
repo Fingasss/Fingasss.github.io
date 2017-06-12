@@ -305,6 +305,9 @@ a:active{
     .description{
         font-size: 150%;
     }
+    .jumpForwardActive{
+        display: none;
+    }
     .jumpBack{
         position:fixed;
         height: 100%;

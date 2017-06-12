@@ -174,8 +174,8 @@ function jumpRight(){
                 document.getElementById('arrow').style.display = "block";
                 document.getElementById('arrow').style.opacity = 1;
 
-            }else{
-                    activateBackHelp();
+            }else if(window.innerWidth>800) {
+                activateBackHelp();
             }
             clearInterval(int1);
             setTimeout(function () {
