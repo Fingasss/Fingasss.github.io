@@ -215,11 +215,11 @@ window.onload = function() {
         html.addEventListener("onwheel", scrollDoc, false);
         html.addEventListener("MozMousePixelScroll",scrollDoc,false);
     }
-    /*setInterval(function(){
+    setInterval(function(){
         if(_callb){
             centrateDodo();
         }
-    }, 300);*/
+    }, 300);
 
     scrollToStart();
 
