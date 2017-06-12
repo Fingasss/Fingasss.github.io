@@ -139,7 +139,7 @@ a:active{
 .jumpBack{
     position:fixed;
     height: 100%;
-    width: 30%;
+    width: 50%;
     left: 0;
     top:0;
     opacity: 0;
@@ -255,6 +255,11 @@ a:active{
 @media only screen and (max-width: 800px){
     .description{
         font-size: 150%;
+    }
+    .jumpBack{
+        position:fixed;
+        height: 100%;
+        width: 20%;
     }
     html{
         width: 100%;
