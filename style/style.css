@@ -185,12 +185,9 @@ a:active{
     }
     html{
         width: 100%;
-        height: 220%;
+
     }
     .outer_dodo{
-        bottom: 5%;
-    }
-    .outer_dodo_r{
         bottom: 5%;
     }
 }
