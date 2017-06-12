@@ -200,6 +200,13 @@ window.onload = function() {
         html.addEventListener("onwheel", scrollDoc, false);
         html.addEventListener("MozMousePixelScroll",scrollDoc,false);
     }
+    function clearSelection() {
+        if (window.getSelection) {
+            window.getSelection().removeAllRanges();
+        } else { // старый IE
+            document.selection.empty();
+        }
+    }
 
     scrollToStart();
 
