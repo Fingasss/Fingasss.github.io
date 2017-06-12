@@ -52,6 +52,7 @@ a:active{
     display: none;
 }
 .tapme a{
+    padding: 16px;
     text-align: center;
     color: #ffffff;
     text-decoration: none;
@@ -59,7 +60,6 @@ a:active{
     position: fixed;
     border: solid 3px #ffffff;
     border-radius: 200%;
-    padding: 1% 2%;
     left:40%;
     top: 40%;
     max-width: 20%;
@@ -172,6 +172,9 @@ a:active{
     transition: transform 1s;
 }
 @media only screen and (max-width: 1081px){
+    .clouds_b img {
+        width:25%;
+    }
     .tapme{
         display: block;
     }
