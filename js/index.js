@@ -197,7 +197,8 @@ window.onload = function() {
     } else {
         html.addEventListener("DOMMouseScroll", scrollDoc, false); // FF
         html.addEventListener("mousewheel", scrollDoc, false); // Chrome
-        html.addEventListener("wheel", scrollDoc);
+        html.addEventListener("onwheel", scrollDoc, false);
+        html.addEventListener("MozMousePixelScroll",scrollDoc,false);
     }
 
     scrollToStart();
