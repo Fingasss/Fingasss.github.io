@@ -16,6 +16,9 @@ html{
 
     -ms-user-select: none;
 }
+html{
+    overflow: hidden;
+}
 body{
     height: 100%;
     margin:0;
@@ -136,7 +139,7 @@ a:active{
 .jumpBack{
     position:fixed;
     height: 100%;
-    width: 10%;
+    width: 30%;
     left: 0;
     top:0;
     opacity: 0;
