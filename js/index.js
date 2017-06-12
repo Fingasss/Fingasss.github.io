@@ -127,6 +127,7 @@ function jumpRight(){
             scrollRight();
             if(i<4) {
                 if(i===0) {
+                    document.getElementById('finger').style.display = "none";
                     document.getElementById('headertext').classList.add('named_small');
                     document.getElementById('headertext').classList.remove('named');
                     document.getElementById('headertext').style.marginLeft = "30%";
