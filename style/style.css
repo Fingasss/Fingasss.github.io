@@ -34,6 +34,7 @@ body{
     position: absolute;
     height: 50%;
     width: 40%;
+    max-width: 40%;
     bottom: 10%;
     transform-origin: 70% center;
 }
@@ -105,6 +106,7 @@ a:active{
 .named_small {
     position: fixed;
     margin-left:30%;
+    margin-right: 30%;
     font-size: 200%;
     max-width: 70%;
     text-align: center;

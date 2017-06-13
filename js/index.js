@@ -1,9 +1,23 @@
-var block = false;
 var floatinV=0;
 var floatSmth= 1;
 var step = 1;
 var tempScroll =0, left = false, i=0, arr=[100, 200, 300, 400, 500, 600, 700];
-var _callb = true;
+
+function offEvents(){
+    $(".jumpBack").off('click');
+    $('#bod').off('click');
+}
+
+function onEvents(){
+    $(".jumpBack").click(function(event){
+        event.stopPropagation();
+        jumpBack();
+    });
+    $('#bod').click(function(event){
+        event.stopPropagation();
+        jumpRight();
+    });
+}
 
 //text fade
 function slideFText(next){
@@ -23,18 +37,6 @@ function slideText(prev, next){
         "display":"none"
     });
     slideFText(next);
-}
-
-//scrolling effects
-function scrollDoc(e) {
-    if(!block) {
-        block=true;
-        if (!e) e = event;
-        e.preventDefault ? e.preventDefault() : e.returnValue = false;
-        var __delta = e.wheelDelta || -e.detail;
-        __delta < 0 ? jumpRight() : jumpBack();
-    }
-    return false;
 }
 
 function scrollBack(){
@@ -63,19 +65,27 @@ function centrateDodo(){
     var dodo=document.getElementById('dod');
     var rec =dodo.getBoundingClientRect().left,
     width = window.innerWidth;
-    if(width>1200)
-        $("#dod").css({
-          "transform":"translate("+(width*0.3-rec)+"px,0)",
-        });
-    else{
-        $("#dod").css({
-            "transform":"translate("+(width*0.1-rec)+"px,0)",
-        });
+    if(rec<0.4*width||rec>0.6*width){
+        if(width>1200) {
+           $("#dod").css({
+              "transform": "translate(" + (width * 0.4 - rec) + "px,0)",
+             });
+           $(".paralaxed3").css({
+              "transform": "translate(" +(width*0.4-rec) + "px, 0%)"
+             });
+        }
+        else{
+            $("#dod").css({
+                "transform":"translate("+(width*0.1-rec)+"px,0)",
+            });
+            $(".paralaxed3").css({
+                "transform": "translate(" + (width*0.1-rec) + "px, 0%)"
+            });
+        }
     }
 }
 
 function moveDodo(){
-    var inte = setInterval(function(){
         var elem = document.getElementById("dod");
         var posh = 10,
         posv = arr[i];
@@ -83,6 +93,10 @@ function moveDodo(){
         function frame(){
           if(posh===100){
             clearInterval(id);
+                onEvents();
+              setTimeout(function () {
+                  //centrateDodo();
+              }, 600);
           }else{
             posv++;
             posh++;
@@ -90,13 +104,9 @@ function moveDodo(){
             elem.style.bottom = (Math.sin(posh/37)*30) + '%';
           }
         }
-        clearInterval(inte);
-        return false;
-    }, 500);
 }
 
 function backDodo(){
-    var inte = setInterval(function(){
         var elem = document.getElementById("dod");
         var posh = 10,
             posv = arr[i+1];
@@ -104,6 +114,10 @@ function backDodo(){
         function frame(){
             if(posh===100){
                 clearInterval(id);
+                onEvents();
+                setTimeout(function () {
+                    //centrateDodo();
+                }, 600);
             }else{
                 posv--;
                 posh++;
@@ -111,17 +125,12 @@ function backDodo(){
                 elem.style.bottom = (Math.sin(posh/37)*20) + '%';
             }
         }
-        clearInterval(inte);
-        return false;
-    }, 500);
 }
 
 function jumpBack(){
-    var int2 = setInterval(function() {
-        if (_callb) {
-            _callb = false;
             scrollBack();
             if (i > 1) {
+                offEvents();
                 if(i>0){
                     slideText($(".des"+(i+1)),$(".des"+(i)));
                 }
@@ -131,29 +140,19 @@ function jumpBack(){
                 document.getElementById('left_a').style.display = "none";
                 document.getElementById('left_a').style.opacity = 0;
                 i--;
+            }else{
+                //centrateDodo();
             }
-            clearInterval(int2);
-            setTimeout(centrateDodo(), 1200);
-            setTimeout(function () {
-                _callb=true;
-                block=false;
-            }, 600);
-        }
-    }, 500);
 }
 
 function jumpRight(){
-    var int1 = setInterval(function(){
-        if(_callb){
-            _callb=false;
             scrollRight();
             if(i<4) {
+                offEvents();
                 if(i===0) {
                     document.getElementById('finger').style.display = "none";
                     document.getElementById('headertext').classList.add('named_small');
                     document.getElementById('headertext').classList.remove('named');
-                    document.getElementById('headertext').style.marginLeft = "30%";
-                    document.getElementById('headertext').style.marginRight = "30%";
                     slideFText($(".des1"));
                 }
                 else if(i>0){
@@ -163,6 +162,7 @@ function jumpRight(){
                 i++;
             }
             else if(i===4){
+                offEvents();
                 moveDodo();
                 i=5;
                 if(window.innerWidth>800) {
@@ -172,15 +172,9 @@ function jumpRight(){
                 document.getElementById('arrow').style.display = "block";
                 document.getElementById('arrow').style.opacity = 1;
 
+            }else{
+                //centrateDodo();
             }
-            clearInterval(int1);
-            setTimeout(centrateDodo(), 300);
-            setTimeout(function () {
-                _callb=true;
-                block=false;
-            }, 600);
-        }
-    }, 500);
 }
 
 //parallax effects
@@ -210,19 +204,16 @@ function windowHParalax(selector, st, koef){
 
 
 window.onload = function() {
-    var html = document.documentElement;
-    if (html.attachEvent) {
-        html.attachEvent("onmousewheel", scrollDoc); // IE and Opera
-    } else {
-        html.addEventListener("DOMMouseScroll", scrollDoc, false); // FF
-        html.addEventListener("mousewheel", scrollDoc, false); // Chrome
-        html.addEventListener("onwheel", scrollDoc, false);
-        html.addEventListener("MozMousePixelScroll",scrollDoc,false);
-    }
+
+    //Ставим интервал выполнения
     setInterval(function(){
-        if(_callb){
-            centrateDodo();
-        }
+//находим теги img и ставим атрибуты
+        $('img, a').attr({
+            "ondrag":"return false",
+            "ondragdrop":"return false",
+            "ondragstart":"return false"
+        })
+//выполняем каждые 0,3 сек
     }, 300);
 
     scrollToStart();
@@ -253,7 +244,11 @@ $(window).scroll(function(){
         });
     }
 });
+$("#bod").click(function(event){
+        event.stopPropagation();
+        jumpRight();
+});
 $(".jumpBack").click(function(event){
-    event.stopPropagation();
+        event.stopPropagation();
         jumpBack();
 });
