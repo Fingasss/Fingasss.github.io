@@ -2,11 +2,21 @@ var floatinV=0;
 var floatSmth= 1;
 var step = 1;
 var scrollMount = true;
-var tempScroll =0, i=0, arr=[100, 200, 300, 400, 500, 600, 700];
+var  i=0, arr=[100, 200, 300, 400, 500, 600, 700];
 
 function getRandomInt(min, max)
 {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function undraged(){
+    setInterval(function(){
+        $('img, a').attr({
+            "ondrag":"return false",
+            "ondragdrop":"return false",
+            "ondragstart":"return false"
+        })
+    }, 300);
 }
 
 function arrowOn(arr){
@@ -22,6 +32,7 @@ function arrowOff(arr){
 function offEvents(){
     $(".jumpBack").off('click');
     $('#bod').off('click');
+    $(document).off('keyup');
 }
 
 function onEvents(){
@@ -33,9 +44,25 @@ function onEvents(){
         event.stopPropagation();
         jumpRight();
     });
+    $(document).keyup(function(e) {
+        if(e.which === 39 || e.keyCode === 39) {
+            jumpRight();
+        }
+        else
+        if(e.which === 37 || e.keyCode === 37){
+            jumpBack();
+        }
+    });
 }
 
 //text fade
+function firstIteration(){
+    document.getElementById('finger').style.display = "none";
+    document.getElementById('headertext').classList.add('named_small');
+    document.getElementById('headertext').classList.remove('named');
+    slideFText($(".des1"));
+}
+
 function slideFText(next){
     next.css({
         "display":"block",
@@ -87,7 +114,7 @@ function centrateDodo(){
     $('html,body').animate({'scrollLeft':(curPos-(width*0.35-rec))},500);
     else
         $('html,body').animate({'scrollLeft':(curPos-(width*0.1-rec))},500);
-    setTimeout(function(){scrollMount=true, onEvents()},1000);
+    setTimeout(function(){scrollMount=true; onEvents()},1000);
 }
 
 function moveDodo(){
@@ -151,10 +178,7 @@ function jumpRight(){
             offEvents();
             if(i<4) {
                 if(i===0) {
-                    document.getElementById('finger').style.display = "none";
-                    document.getElementById('headertext').classList.add('named_small');
-                    document.getElementById('headertext').classList.remove('named');
-                    slideFText($(".des1"));
+                    firstIteration();
                 }
                 else if(i>0){
                     slideText($(".des"+(i)),$(".des"+(i+1)));
@@ -203,35 +227,12 @@ function windowHParalax(selector, st, koef){
 
 window.onload = function() {
 
-    //Ставим интервал выполнения
-    setInterval(function(){
-//находим теги img и ставим атрибуты
-        $('img, a').attr({
-            "ondrag":"return false",
-            "ondragdrop":"return false",
-            "ondragstart":"return false"
-        })
-//выполняем каждые 0,3 сек
-    }, 300);
-
+    undraged();
     scrollToStart();
+    onEvents();
 
-    $(document).keyup(function(e) {
-        if(e.which === 39 || e.keyCode === 39) {
-            jumpRight();
-        }
-        else
-            if(e.which === 37 || e.keyCode === 37){
-                jumpBack();
-            }
-        });
-    };
-
-$(window).scroll(function(){
-    var st = $(this).scrollLeft(),
-        maxScroll=2500;
-    if(st<maxScroll) {
-
+    $(window).scroll(function(){
+        var st = $(this).scrollLeft();
         windowWHParalax($(".paralaxed1"), st);
         windowHParalax($(".cloud1"), st, 3);
         windowHParalax($(".cloud2"), st, 10);
@@ -239,14 +240,5 @@ $(window).scroll(function(){
             $(".paralaxed3").css({
                 "transform": "translate(" + -st / 50 + "%, 0%)"
             });
-        tempScroll = st;
-    }
-});
-$("#bod").click(function(event){
-        event.stopPropagation();
-        jumpRight();
-});
-$(".jumpBack").click(function(event){
-        event.stopPropagation();
-        jumpBack();
-});
+    });
+    };
