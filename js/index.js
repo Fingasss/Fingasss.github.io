@@ -66,7 +66,10 @@ function centrateDodo(){
     var dodo=document.getElementById('dod');
     var rec =dodo.getBoundingClientRect().left,
     width = window.innerWidth;
+    if(width>1200)
     $('html,body').animate({'scrollLeft':(curPos-(width*0.35-rec))},500);
+    else
+        $('html,body').animate({'scrollLeft':(curPos-(width*0.1-rec))},500);
 }
 
 function moveDodo(){
