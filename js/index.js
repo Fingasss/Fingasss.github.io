@@ -63,9 +63,15 @@ function centrateDodo(){
     var dodo=document.getElementById('dod');
     var rec =dodo.getBoundingClientRect().left,
     width = window.innerWidth;
+    if(width>1200)
         $("#dod").css({
-          "transform":"translate("+(width/2-rec)+"px,0)",
+          "transform":"translate("+(width*0.3-rec)+"px,0)",
         });
+    else{
+        $("#dod").css({
+            "transform":"translate("+(width*0.1-rec)+"px,0)",
+        });
+    }
 }
 
 function moveDodo(){
