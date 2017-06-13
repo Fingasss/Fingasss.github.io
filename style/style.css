@@ -115,7 +115,7 @@ a:active{
     transition: font-size 1s;
 }
 .clouds_b{
-    transition: all 3.5s;
+    transition: all 5s;
 }
 .clouds_b img{
 
@@ -177,14 +177,14 @@ a:active{
     position: absolute;
     margin-top: 10%;
     margin-left: -80%;
-    transition: all 3s;
+    transition: all 4s;
 }
 .cloud2{
     position: absolute;
     margin-top: 0;
     margin-left: 100%;
     margin-right: -70%;
-    transition: all 2s;
+    transition: all 3s;
 }
 .appStore img{
     width: 100%;
