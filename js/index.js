@@ -62,27 +62,11 @@ function scrollToStart(){
 
 //dodo moving
 function centrateDodo(){
+    var curPos=$(window).scrollLeft();
     var dodo=document.getElementById('dod');
     var rec =dodo.getBoundingClientRect().left,
     width = window.innerWidth;
-    if(rec<0.4*width||rec>0.6*width){
-        if(width>1200) {
-           $("#dod").css({
-              "transform": "translate(" + (width * 0.4 - rec) + "px,0)",
-             });
-           $(".paralaxed3").css({
-              "transform": "translate(" +(width*0.4-rec) + "px, 0%)"
-             });
-        }
-        else{
-            $("#dod").css({
-                "transform":"translate("+(width*0.1-rec)+"px,0)",
-            });
-            $(".paralaxed3").css({
-                "transform": "translate(" + (width*0.1-rec) + "px, 0%)"
-            });
-        }
-    }
+    $('html,body').animate({'scrollLeft':(curPos-(width*0.35-rec))},500);
 }
 
 function moveDodo(){
@@ -95,7 +79,7 @@ function moveDodo(){
             clearInterval(id);
                 onEvents();
               setTimeout(function () {
-                  //centrateDodo();
+                  centrateDodo();
               }, 600);
           }else{
             posv++;
@@ -116,7 +100,7 @@ function backDodo(){
                 clearInterval(id);
                 onEvents();
                 setTimeout(function () {
-                    //centrateDodo();
+                    centrateDodo();
                 }, 600);
             }else{
                 posv--;
@@ -141,7 +125,7 @@ function jumpBack(){
                 document.getElementById('left_a').style.opacity = 0;
                 i--;
             }else{
-                //centrateDodo();
+                centrateDodo();
             }
 }
 
@@ -173,7 +157,7 @@ function jumpRight(){
                 document.getElementById('arrow').style.opacity = 1;
 
             }else{
-                //centrateDodo();
+                centrateDodo();
             }
 }
 
