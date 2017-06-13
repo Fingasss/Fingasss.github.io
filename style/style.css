@@ -149,13 +149,13 @@ a:active{
     top:0;
     opacity: 0;
 }
-.jumpBack img,{
+.jumpBack img{
     width: 20%;
     position:fixed;
     top:40%;
     left:15%;
 }
-.jumpBack p,{
+.jumpBack p{
     width: 50%;
     text-align: center;
     position:fixed;
