@@ -115,7 +115,7 @@ a:active{
     transition: font-size 1s;
 }
 .clouds_b{
-    transition: all 2s;
+    transition: all 0.5s;
 }
 .clouds_b img{
 
@@ -177,7 +177,7 @@ a:active{
     position: absolute;
     margin-top: 10%;
     margin-left: -80%;
-    transition: all 2s;
+    transition: all 0.5s;
 }
 .cloud2{
     position: absolute;
