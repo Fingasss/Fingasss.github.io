@@ -134,7 +134,6 @@ function jumpBack(){
             }
             clearInterval(int2);
             setTimeout(centrateDodo(), 1200);
-       //     setTimeout(window.scrollTo(parseInt(document.getElementById("dod").style.left)*window.innerWidth/40-50*window.innerWidth/100,0),1500);
             setTimeout(function () {
                 _callb=true;
                 block=false;
@@ -176,7 +175,6 @@ function jumpRight(){
             }
             clearInterval(int1);
             setTimeout(centrateDodo(), 300);
-    //        setTimeout(window.scrollTo(parseInt(document.getElementById("dod").style.left)*window.innerWidth/40-50*window.innerWidth/100,0),1500);
             setTimeout(function () {
                 _callb=true;
                 block=false;

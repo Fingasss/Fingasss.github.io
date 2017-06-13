@@ -1,23 +1,25 @@
-
 @font-face {
     font-family: Troika;
     src: url("../fonts/8944.otf");
 }
+
 @-webkit-keyframes pulsate {0% {transform:scale(.8);opacity: 1;} 50% {transform:scale(1);opacity:1;} 100% {transform:scale(.8);opacity:1;}}
+
 @keyframes pulsate {0% {transform:scale(.8);opacity: 1;} 50% {transform:scale(1);opacity:1;} 100% {transform:scale(.8);opacity:1;}}
+
 html{
+    overflow: hidden;
     height: 100%;
     width: 100%;
 }
 *{
+    transition: transform 1s;
+
     -webkit-user-select: none;
 
     -moz-user-select: none;
 
     -ms-user-select: none;
-}
-html{
-    overflow: hidden;
 }
 body{
     cursor: pointer;
@@ -25,9 +27,6 @@ body{
     margin:0;
     width: 230%;
     font-family: Troika;
-}
-.description{
-    display: none;
 }
 .outer_dodo{
     left:20%;
@@ -39,6 +38,7 @@ body{
     transform-origin: 70% center;
 }
 .description {
+    display: none;
     text-align: center;
     font-size: 300%;
     color: #525252;
@@ -149,27 +149,13 @@ a:active{
     top:0;
     opacity: 0;
 }
-.jumpBackActive{
-    cursor: pointer;
-    position:fixed;
-    height: 100%;
-    width: 50%;
-    left: 0;
-    top:0;
-    background-color: #525252;
-    opacity: 0.2;
-    color:#ffffff;
-}
-.jumpBackActive:hover{
-    box-shadow: 6px 6px 10px rgba(5,7,8,0.7);
-}
-.jumpBack img,.jumpBackActive img{
+.jumpBack img,{
     width: 20%;
     position:fixed;
     top:40%;
     left:15%;
 }
-.jumpBack p,.jumpBackActive p{
+.jumpBack p,{
     width: 50%;
     text-align: center;
     position:fixed;
@@ -260,9 +246,6 @@ a:active{
 .facebook, .vk, .insta, .linkedIn{
     padding: 4px 4px;
 }
-*{
-    transition: transform 1s;
-}
 @media only screen and (max-width: 1023px){
     .outer_dodo{
         position: absolute;
@@ -288,17 +271,10 @@ a:active{
     .description{
         font-size: 150%;
     }
-    .jumpForwardActive{
-        display: none;
-    }
     .jumpBack{
         position:fixed;
         height: 100%;
         width: 20%;
-    }
-    html{
-        width: 100%;
-        height: 100%;
     }
     .arrow{
         bottom:20%;
