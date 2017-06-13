@@ -29,14 +29,13 @@ body{
     font-family: Troika;
 }
 .outer_dodo{
-    left:20%;
+    left:10%;
     z-index: 5;
     position: absolute;
     height: 50%;
     width: 40%;
     max-width: 40%;
     bottom: 10%;
-    transform-origin: 70% center;
 }
 .description {
     display: none;

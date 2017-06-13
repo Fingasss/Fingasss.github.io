@@ -1,6 +1,7 @@
 var floatinV=0;
 var floatSmth= 1;
 var step = 1;
+var scrollMount = true;
 var tempScroll =0, left = false, i=0, arr=[100, 200, 300, 400, 500, 600, 700];
 
 function offEvents(){
@@ -66,10 +67,12 @@ function centrateDodo(){
     var dodo=document.getElementById('dod');
     var rec =dodo.getBoundingClientRect().left,
     width = window.innerWidth;
+    scrollMount=false;
     if(width>1200)
     $('html,body').animate({'scrollLeft':(curPos-(width*0.35-rec))},500);
     else
         $('html,body').animate({'scrollLeft':(curPos-(width*0.1-rec))},500);
+    setTimeout(function(){scrollMount=true, onEvents()},1000);
 }
 
 function moveDodo(){
@@ -80,7 +83,6 @@ function moveDodo(){
         function frame(){
           if(posh===100){
             clearInterval(id);
-                onEvents();
               setTimeout(function () {
                   centrateDodo();
               }, 600);
@@ -96,12 +98,11 @@ function moveDodo(){
 function backDodo(){
         var elem = document.getElementById("dod");
         var posh = 10,
-            posv = arr[i+1];
+            posv = arr[i];
         var id = setInterval(frame, 10);
         function frame(){
             if(posh===100){
                 clearInterval(id);
-                onEvents();
                 setTimeout(function () {
                     centrateDodo();
                 }, 600);
@@ -116,8 +117,8 @@ function backDodo(){
 
 function jumpBack(){
             scrollBack();
+            offEvents();
             if (i > 1) {
-                offEvents();
                 if(i>0){
                     slideText($(".des"+(i+1)),$(".des"+(i)));
                 }
@@ -134,8 +135,8 @@ function jumpBack(){
 
 function jumpRight(){
             scrollRight();
+            offEvents();
             if(i<4) {
-                offEvents();
                 if(i===0) {
                     document.getElementById('finger').style.display = "none";
                     document.getElementById('headertext').classList.add('named_small');
@@ -149,7 +150,6 @@ function jumpRight(){
                 i++;
             }
             else if(i===4){
-                offEvents();
                 moveDodo();
                 i=5;
                 if(window.innerWidth>800) {
@@ -226,9 +226,10 @@ $(window).scroll(function(){
         windowWHParalax(".paralaxed1", st);
         windowHParalax(".cloud1", st, 3);
         windowHParalax(".cloud2", st, 10);
-        $(".paralaxed3").css({
-            "transform": "translate(" + -st / 50 + "%, 0%)"
-        });
+        if(scrollMount)
+            $(".paralaxed3").css({
+                "transform": "translate(" + -st / 50 + "%, 0%)"
+            });
     }
 });
 $("#bod").click(function(event){
