@@ -2,7 +2,22 @@ var floatinV=0;
 var floatSmth= 1;
 var step = 1;
 var scrollMount = true;
-var tempScroll =0, left = false, i=0, arr=[100, 200, 300, 400, 500, 600, 700];
+var tempScroll =0, i=0, arr=[100, 200, 300, 400, 500, 600, 700];
+
+function getRandomInt(min, max)
+{
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function arrowOn(arr){
+    document.getElementById(arr).style.display = "block";
+    document.getElementById(arr).style.opacity = 1;
+}
+
+function arrowOff(arr){
+    document.getElementById(arr).style.display = "none";
+    document.getElementById(arr).style.opacity = 0;
+}
 
 function offEvents(){
     $(".jumpBack").off('click');
@@ -123,10 +138,8 @@ function jumpBack(){
                     slideText($(".des"+(i+1)),$(".des"+(i)));
                 }
                 backDodo();
-                document.getElementById('arrow').style.display = "none";
-                document.getElementById('arrow').style.opacity = 0;
-                document.getElementById('left_a').style.display = "none";
-                document.getElementById('left_a').style.opacity = 0;
+                arrowOff('arrow');
+                arrowOff('left_a');
                 i--;
             }else{
                 centrateDodo();
@@ -153,11 +166,9 @@ function jumpRight(){
                 moveDodo();
                 i=5;
                 if(window.innerWidth>800) {
-                    document.getElementById('left_a').style.display = "block";
-                    document.getElementById('left_a').style.opacity = 1;
+                    arrowOn('left_a');
                 }
-                document.getElementById('arrow').style.display = "block";
-                document.getElementById('arrow').style.opacity = 1;
+                arrowOn('arrow');
 
             }else{
                 centrateDodo();
@@ -219,17 +230,16 @@ window.onload = function() {
 $(window).scroll(function(){
     var st = $(this).scrollLeft(),
         maxScroll=2500;
-    left=!(st>tempScroll);
-    tempScroll = st;
     if(st<maxScroll) {
 
-        windowWHParalax(".paralaxed1", st);
-        windowHParalax(".cloud1", st, 3);
-        windowHParalax(".cloud2", st, 10);
+        windowWHParalax($(".paralaxed1"), st);
+        windowHParalax($(".cloud1"), st, 3);
+        windowHParalax($(".cloud2"), st, 10);
         if(scrollMount)
             $(".paralaxed3").css({
                 "transform": "translate(" + -st / 50 + "%, 0%)"
             });
+        tempScroll = st;
     }
 });
 $("#bod").click(function(event){

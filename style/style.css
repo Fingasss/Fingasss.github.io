@@ -29,7 +29,7 @@ body{
     font-family: Troika;
 }
 .outer_dodo{
-    left:10%;
+    left:15%;
     z-index: 5;
     position: absolute;
     height: 50%;
@@ -114,6 +114,9 @@ a:active{
     z-index: 0;
     transition: font-size 1s;
 }
+.clouds_b{
+    transition: all 2s;
+}
 .clouds_b img{
 
     overflow: hidden;
@@ -121,7 +124,6 @@ a:active{
     background-size: contain;
     width: 55%;
     z-index: 2;
-    transition: transform 5s;
 }
 .dodo{
     z-index: 5;
@@ -175,12 +177,14 @@ a:active{
     position: absolute;
     margin-top: 10%;
     margin-left: -80%;
+    transition: all 2s;
 }
 .cloud2{
     position: absolute;
     margin-top: 0;
     margin-left: 100%;
     margin-right: -70%;
+    transition: all 2s;
 }
 .appStore img{
     width: 100%;
