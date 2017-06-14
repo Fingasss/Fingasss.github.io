@@ -94,6 +94,7 @@ a:active{
 .named {
     position: fixed;
     margin-left:10%;
+    margin-right: 10%;
     font-size: 400%;
     width: 80%;
     max-width: 80%;
