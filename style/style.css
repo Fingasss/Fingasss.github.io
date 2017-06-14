@@ -297,8 +297,8 @@ a:active{
         width: 20%;
     }
     .outer_dodo{
-        left:10%;
-        bottom: 5%;
+        left:-10%;
+        bottom: -5%;
         transform: scale(0.5);
     }
 }
@@ -308,8 +308,8 @@ a:active{
     }
     .outer_dodo{
         transform: scale(0.4);
-        left:10%;
-        bottom: 5%;
+        left:-10%;
+        bottom: -5%;
     }
     .linkedIn{
         display:none;
