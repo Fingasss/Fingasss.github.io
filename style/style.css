@@ -138,13 +138,19 @@ a:active{
     width: 55%;
     z-index: 0;
 }
+.walking{
+    background: url("../src/walk.png") 0px 0px no-repeat;
+    animation:walk 1s steps(20) infinite;
+}
+.idle{
+    background: url("../src/idle.png") 0px 0px no-repeat;
+    animation:idle 1s steps(16) infinite;
+}
 .dodo{
     z-index: 5;
     height: 100%;
     width: 100%;
-    background: url("../src/idle.png") 0px 0px no-repeat;
     transform: scale(1);
-    animation:idle 1s steps(16) infinite;
 }
 .mountains{
     overflow: hidden;

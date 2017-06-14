@@ -101,12 +101,25 @@ function slideText(prev, next){
 
 //moving
 function walk(){
-    document.getElementById('')
+    document.getElementById('inner_dod').classList.add('walking');
+    document.getElementById('inner_dod').classList.remove('idle');
+}
+function idle() {
+    document.getElementById('inner_dod').classList.add('idle');
+    document.getElementById('inner_dod').classList.remove('walking');
 }
 
 function moveDodo(){
         mounains(position+=500);
-
+        walk();
+        var counter =0, why = setInterval(function(){
+            counter++;
+            if(counter ===300){
+                idle();
+                onEvents();
+                clearInterval(why);
+            }
+        }, 10);
 }
 
 //"jumps"
