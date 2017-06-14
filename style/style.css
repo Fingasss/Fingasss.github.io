@@ -102,19 +102,21 @@ a:active{
     overflow: hidden;
     color: #000000;
     z-index: 0;
-    transition: font-size 1s;
+    transition: transform 2s;
 }
 .named_small {
     position: fixed;
-    margin-left:30%;
-    margin-right: 30%;
-    font-size: 300%;
-    max-width: 70%;
+    margin-left:10%;
+    margin-right: 10%;
+    font-size: 400%;
+    max-width: 80%;
+    width:80%;
     text-align: center;
     overflow: hidden;
     color: #000000;
     z-index: 0;
-    transition: font-size 1s;
+    transform: scale(0.8);
+    transition: transform 2s;
 }
 .clouds_b{
     transition: all 5s;
