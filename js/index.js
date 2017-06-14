@@ -19,6 +19,23 @@ function undraged(){
     }, 300);
 }
 
+//clouds
+function clouding(){
+    var count = 0, left=false;
+    setInterval(function() {
+        windowWHParalax($(".paralaxed1"), count);
+        windowHParalax($(".cloud1"), count, 3);
+        windowHParalax($(".cloud2"), count, 10);
+        if(left)
+            count--;
+        else
+            count++;
+        if(count===300||count===-300){
+            left = (!left);
+        }
+    }, 600);
+}
+
 //arrows
 function btnOn(btn){
     document.getElementById(btn).classList.add('btn-animate');
@@ -225,11 +242,10 @@ function windowHParalax(selector, st, koef){
 
 
 window.onload = function() {
-
     undraged();
     scrollToStart();
     onEvents();
-
+    clouding();
     $(window).scroll(function(){
         var st = $(this).scrollLeft();
         windowWHParalax($(".paralaxed1"), st);
