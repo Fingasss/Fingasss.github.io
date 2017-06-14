@@ -1,7 +1,7 @@
 var floatinV=0;
 var floatSmth= 1;
 var step = 1, position = 0;
-var  i=0, arr=[100, 200, 300, 400, 500, 600, 700];
+var  i=0;
 
 function getRandomInt(min, max)
 {
@@ -109,8 +109,8 @@ function idle() {
     document.getElementById('inner_dod').classList.remove('walking');
 }
 
-function moveDodo(){
-        mounains(position+=500);
+function moveDodo(float=1){
+        mounains(position+=500*float);
         walk();
         var counter =0, why = setInterval(function(){
             counter++;
@@ -129,11 +129,12 @@ function jumpBack(){
                 if(i>0){
                     slideText($(".des"+(i+1)),$(".des"+(i)));
                 }
-                backDodo();
+                moveDodo(-1);
                 btnOff('btn');
                 i--;
-            }else{
-                centrateDodo();
+            }
+            else{
+                onEvents();
             }
 }
 
@@ -153,9 +154,8 @@ function jumpRight(){
                 moveDodo();
                 i=5;
                 btnOn('btn');
-
             }else{
-                centrateDodo();
+                onEvents();
             }
 }
 
