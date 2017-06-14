@@ -232,4 +232,7 @@ window.onload = function() {
     catchScroll();
     onEvents();
     clouding();
+    document.getElementById('inner_dod').classList.remove('preload');
+    idle();
+    console.log('idle');
     };

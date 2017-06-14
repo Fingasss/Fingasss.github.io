@@ -146,11 +146,14 @@ a:active{
     background: url("../src/idle.png") 0px 0px no-repeat;
     animation:idle 1s steps(16) infinite;
 }
+.preload{
+    background: url("../src/Walk (18).png") 0px 0px no-repeat;
+}
 .dodo{
+    transform: scale(1);
     z-index: 5;
     height: 100%;
     width: 100%;
-    transform: scale(1);
 }
 .mountains{
     overflow: hidden;
@@ -271,7 +274,8 @@ a:active{
     .outer_dodo{
         position: absolute;
         transform: scale(0.8);
-        bottom: 20%;
+        left:-15%;
+        bottom: -5%;
     }
     .blur_clouds img{
         max-width: 90%;
@@ -297,8 +301,8 @@ a:active{
         width: 20%;
     }
     .outer_dodo{
-        left:-10%;
         bottom: -5%;
+        left:-15%;
         transform: scale(0.5);
     }
 }
@@ -308,8 +312,6 @@ a:active{
     }
     .outer_dodo{
         transform: scale(0.4);
-        left:-10%;
-        bottom: -5%;
     }
     .linkedIn{
         display:none;
