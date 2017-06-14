@@ -11,6 +11,10 @@
     0% { background-position:    0px 0; }
     100% { background-position: 0px -7290px; }
 }
+@keyframes walk {
+    0% { background-position:    0px 0; }
+    100% { background-position: 0px -9065px; }
+}
 
 html{
     overflow: hidden;
@@ -136,10 +140,11 @@ a:active{
 }
 .dodo{
     z-index: 5;
-    height: 100%;
-    width: 100%;
-    background: url("../src/idle.png") 0px 0px no-repeat;
-    animation:idle 1s steps(16) infinite;
+    height: 450px;
+    width: 415px;
+    background: url("../src/walk.png") 0px 0px no-repeat;
+    transform: scale(1);
+    animation:walk 1s steps(20) infinite;
 }
 .mountains{
     overflow: hidden;
@@ -281,6 +286,9 @@ a:active{
     .description{
         font-size: 150%;
     }
+    .dodo{
+        transform: scale(0.3);
+    }
     .jumpBack{
         position:fixed;
         height: 100%;
@@ -293,6 +301,9 @@ a:active{
 @media only screen and (max-width: 360px){
     .facebook, .vk, .insta, .linkedIn{
         padding: 0;
+    }
+    .dodo{
+        transform: scale(0.5);
     }
     .linkedIn{
         display:none;
