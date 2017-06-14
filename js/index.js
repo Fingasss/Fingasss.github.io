@@ -20,14 +20,12 @@ function undraged(){
 }
 
 //arrows
-function arrowOn(arr){
-    document.getElementById(arr).style.display = "block";
-    document.getElementById(arr).style.opacity = 1;
+function btnOn(btn){
+    document.getElementById(btn).classList.add('btn-animate');
 }
 
-function arrowOff(arr){
-    document.getElementById(arr).style.display = "none";
-    document.getElementById(arr).style.opacity = 0;
+function btnOff(btn){
+    document.getElementById(btn).classList.remove('btn-animate');
 }
 
 //events
@@ -169,8 +167,7 @@ function jumpBack(){
                     slideText($(".des"+(i+1)),$(".des"+(i)));
                 }
                 backDodo();
-                arrowOff('arrow');
-                arrowOff('left_a');
+                btnOff('btn');
                 i--;
             }else{
                 centrateDodo();
@@ -194,10 +191,7 @@ function jumpRight(){
                 scrollRight();
                 moveDodo();
                 i=5;
-                if(window.innerWidth>800) {
-                    arrowOn('left_a');
-                }
-                arrowOn('arrow');
+                btnOn('btn');
 
             }else{
                 centrateDodo();

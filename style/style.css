@@ -219,18 +219,6 @@ a:active{
     font-size: 32px;
     display: inline;
 }
-.arrow{
-    opacity: 0;
-    display: none;
-    bottom:15%;
-    right:5%;
-    z-index: 25;
-    position: fixed;
-    width: 15%;
-    transition: opacity ease 1s;
-    animation: pulsate 1s ease-out;
-    animation-iteration-count:infinite;
-}
 .left_a{
     opacity: 0;
     display: none;
@@ -243,11 +231,10 @@ a:active{
     animation: pulsate 1s ease-out;
     animation-iteration-count:infinite;
 }
-.arrow img{
-    width: 100%;
-}
-.left_a img{
-    width: 100%;
+.btn-animate{
+    transition: opacity ease 1s;
+    animation: pulsate 1s ease-out;
+    animation-iteration-count:infinite;
 }
 .smedia{
     text-align: center;
@@ -259,11 +246,11 @@ a:active{
     .named_small{
         transform: none;
         transition: font-size 1s;
-        font-size: 300%;
+        font-size: 200%;
     }
     .named{
         transition: font-size 1s;
-        font-size: 400%;
+        font-size: 300%;
     }
     .outer_dodo{
         position: absolute;
@@ -293,11 +280,6 @@ a:active{
         position:fixed;
         height: 100%;
         width: 20%;
-    }
-    .arrow{
-        bottom:20%;
-        right:0;
-        width: 25%;
     }
     .outer_dodo{
         bottom: 20%;
