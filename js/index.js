@@ -1,7 +1,6 @@
 var floatinV=0;
 var floatSmth= 1;
-var step = 1;
-var scrollMount = true;
+var step = 1, position = 0;
 var  i=0, arr=[100, 200, 300, 400, 500, 600, 700];
 
 function getRandomInt(min, max)
@@ -99,87 +98,21 @@ function slideText(prev, next){
     slideFText(next);
 }
 
-//scrolls
-function scrollBack(){
-    var curPos1=$(window).scrollLeft();
-    var width1=$(window).width()/4;
-    var scrollTime1=500;
-    if((curPos1-width1)>0)
-        $("html,body").animate({"scrollLeft":curPos1-width1},scrollTime1);
-    else $("html,body").animate({"scrollLeft":0}, scrollTime1);
-}
 
-function scrollRight(){
-    var curPos=$(window).scrollLeft();
-    var width=$(window).width()/4;
-    var scrollTime = 500;
-    $('html,body').animate({'scrollLeft':(curPos+width)},scrollTime);
-}
-
-function scrollToStart(){
-    var scrollTime1=500;
-    $("html,body").animate({"scrollLeft":0},scrollTime1);
-}
-
-//dodo moving
-function centrateDodo(){
-    var curPos=$(window).scrollLeft();
-    var dodo=document.getElementById('dod');
-    var rec =dodo.getBoundingClientRect().left,
-    width = window.innerWidth;
-    scrollMount=false;
-    if(width>1200)
-    $('html,body').animate({'scrollLeft':(curPos-(width*0.35-rec))},500);
-    else
-        $('html,body').animate({'scrollLeft':(curPos-(width*0.1-rec))},500);
-    onEvents();
-    setTimeout(function(){scrollMount=true;},1000);
+//moving
+function walk(){
+    document.getElementById('')
 }
 
 function moveDodo(){
-        var elem = document.getElementById("dod");
-        var posh = 10,
-        posv = arr[i];
-        var id = setInterval(frame, 10);
-        function frame(){
-          if(posh===100){
-            clearInterval(id);
-              setTimeout(function () {
-                  centrateDodo();
-              }, 600);
-          }else{
-            posv++;
-            posh++;
-            elem.style.left = posv/10 +'%';
-            elem.style.bottom = (Math.sin(posh/37)*30) + '%';
-          }
-        }
+        mounains(position+=500);
+
 }
 
-function backDodo(){
-        var elem = document.getElementById("dod");
-        var posh = 10,
-            posv = arr[i];
-        var id = setInterval(frame, 10);
-        function frame(){
-            if(posh===100){
-                clearInterval(id);
-                setTimeout(function () {
-                    centrateDodo();
-                }, 600);
-            }else{
-                posv--;
-                posh++;
-                elem.style.left = posv/10 +'%';
-                elem.style.bottom = (Math.sin(posh/37)*20) + '%';
-            }
-        }
-}
-
+//"jumps"
 function jumpBack(){
             offEvents();
             if (i > 1) {
-                scrollBack();
                 if(i>0){
                     slideText($(".des"+(i+1)),$(".des"+(i)));
                 }
@@ -194,7 +127,6 @@ function jumpBack(){
 function jumpRight(){
             offEvents();
             if(i<4) {
-                scrollRight();
                 if(i===0) {
                     firstIteration();
                 }
@@ -205,7 +137,6 @@ function jumpRight(){
                 i++;
             }
             else if(i===4){
-                scrollRight();
                 moveDodo();
                 i=5;
                 btnOn('btn');
@@ -216,6 +147,13 @@ function jumpRight(){
 }
 
 //parallax effects
+
+function mounains(st){
+    $(".paralaxed3").css({
+        "transform": "translate(" + -st / 50 + "%, 0%)"
+    });
+}
+
 function windowWHParalax(selector, st){
     $(selector).css({
         "transform": "translate(" + (st+floatinV*floatSmth*5) + "px,"+ Math.sin(st/100)*10 +"%)"
@@ -243,17 +181,6 @@ function windowHParalax(selector, st, koef){
 
 window.onload = function() {
     undraged();
-    scrollToStart();
     onEvents();
     clouding();
-    $(window).scroll(function(){
-        var st = $(this).scrollLeft();
-        windowWHParalax($(".paralaxed1"), st);
-        windowHParalax($(".cloud1"), st, 3);
-        windowHParalax($(".cloud2"), st, 10);
-        if(scrollMount)
-            $(".paralaxed3").css({
-                "transform": "translate(" + -st / 50 + "%, 0%)"
-            });
-    });
     };
