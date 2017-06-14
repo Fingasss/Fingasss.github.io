@@ -256,6 +256,15 @@ a:active{
     padding: 4px 4px;
 }
 @media only screen and (max-width: 1023px){
+    .named_small{
+        transform: none;
+        transition: font-size 1s;
+        font-size: 200%;
+    }
+    .named{
+        transition: font-size 1s;
+        font-size: 300%;
+    }
     .outer_dodo{
         position: absolute;
         height: 30%;
@@ -303,9 +312,12 @@ a:active{
     }
     .named{
         font-size: 200%;
+        transition: font-size 1s;
     }
     .named_small{
         font-size: 100%;
+        transform: none;
+        transition: font-size 1s;
     }
 }
 
