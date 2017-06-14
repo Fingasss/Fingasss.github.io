@@ -78,10 +78,6 @@ function btnOn(btn){
     document.getElementById(btn).classList.add('btn-animate');
 }
 
-function btnOff(btn){
-    document.getElementById(btn).classList.remove('btn-animate');
-}
-
 //events
 function offEvents(){
     $(".jumpBack").off('click');
@@ -170,7 +166,6 @@ function jumpBack(){
                     slideText($(".des"+(i+1)),$(".des"+(i)));
                 }
                 moveDodo(-1);
-                btnOff('btn');
                 i--;
             }
             else{
