@@ -7,6 +7,11 @@
 
 @keyframes pulsate {0% {transform:scale(.8);opacity: 1;} 50% {transform:scale(1);opacity:1;} 100% {transform:scale(.8);opacity:1;}}
 
+@keyframes idle {
+    0% { background-position:    0px 0; }
+    100% { background-position: 0px -7290px; }
+}
+
 html{
     overflow: hidden;
     height: 100%;
@@ -133,9 +138,8 @@ a:active{
     z-index: 5;
     height: 100%;
     width: 100%;
-    background-image: url("../src/Walk (18).png");
-    background-size: contain;
-    background-repeat: no-repeat;
+    background: url("../src/idle.png") 0px 0px no-repeat;
+    animation:idle 1s steps(16) infinite;
 }
 .mountains{
     overflow: hidden;
