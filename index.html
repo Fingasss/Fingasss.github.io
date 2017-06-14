@@ -13,13 +13,11 @@
         for(var j = 0; j < imagesArray.length; j++){
             preload[j] = new Image;
             preload[j].src = imagesArray[j];
-            console.log(preload[j]);
         }
     </script>
 </head>
 <body id="bod">
-<audio autoplay="autoplay">
-    <source src="src/sound/bgm01.mp3" hidden="true" />
+<audio id="sound" autoplay="autoplay">
 </audio>
 
 <div class="container" >

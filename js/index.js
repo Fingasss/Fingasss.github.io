@@ -234,5 +234,5 @@ window.onload = function() {
     clouding();
     idle();
     document.getElementById('inner_dod').classList.remove('preload');
-    console.log('idle');
+    document.getElementById('sound').innerHTML ='<source src="src/sound/bgm01.mp3" hidden="true" />';
     };
