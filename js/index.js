@@ -1,6 +1,6 @@
 var floatinV=0;
 var floatSmth= 1;
-var step = 1, position = 0;
+var step = 1, position = 0, off = true;
 var  i=0;
 
 function getRandomInt(min, max)
@@ -16,6 +16,44 @@ function undraged(){
             "ondragstart":"return false"
         })
     }, 300);
+}
+
+//scrolls
+function catchScroll(){
+    var elem = document.getElementById('bod');
+
+    if (elem.addEventListener) {
+        if ('onwheel' in document) {
+            // IE9+, FF17+, Ch31+
+            elem.addEventListener("wheel", onWheel);
+        } else if ('onmousewheel' in document) {
+            // устаревший вариант события
+            elem.addEventListener("mousewheel", onWheel);
+        } else {
+            // Firefox < 17
+            elem.addEventListener("MozMousePixelScroll", onWheel);
+        }
+    } else { // IE8-
+        elem.attachEvent("onmousewheel", onWheel);
+    }
+}
+
+function onWheel(e){
+    e = e || window.event;
+
+    // deltaY, detail содержат пиксели
+    // wheelDelta не дает возможность узнать количество пикселей
+    // onwheel || MozMousePixelScroll || onmousewheel
+    var delta = e.deltaY || e.detail || e.wheelDelta;
+
+    if(!off){
+        if(delta>0)
+        jumpRight();
+        else
+            jumpBack();
+    }
+
+    e.preventDefault ? e.preventDefault() : (e.returnValue = false);
 }
 
 //clouds
@@ -49,6 +87,7 @@ function offEvents(){
     $(".jumpBack").off('click');
     $('#bod').off('click');
     $(document).off('keyup');
+    off=true;
 }
 
 function onEvents(){
@@ -69,6 +108,7 @@ function onEvents(){
             jumpBack();
         }
     });
+    off=false;
 }
 
 //text fade
@@ -194,6 +234,7 @@ function windowHParalax(selector, st, koef){
 
 window.onload = function() {
     undraged();
+    catchScroll();
     onEvents();
     clouding();
     };

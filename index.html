@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/font-awesome.min.css">
     <link rel="shortcut icon" href="src/Walk%20(18).png" type="image/png">
+    <script>
+        var imagesArray = ["src/idle.png", "src/walk.png"];
+        var preload = [];
+        for(var j = 0; j < imagesArray.length   ; j++){
+            preload[j] = new Image;
+            preload[j].src = imagesArray[j];
+            console.log(preload[j]);
+        }
+    </script>
 </head>
 <body id="bod">
 <audio autoplay="autoplay">
