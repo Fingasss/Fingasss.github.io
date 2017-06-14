@@ -259,11 +259,11 @@ a:active{
     .named_small{
         transform: none;
         transition: font-size 1s;
-        font-size: 200%;
+        font-size: 300%;
     }
     .named{
         transition: font-size 1s;
-        font-size: 300%;
+        font-size: 400%;
     }
     .outer_dodo{
         position: absolute;
@@ -311,11 +311,11 @@ a:active{
         display:none;
     }
     .named{
-        font-size: 200%;
+        font-size: 300%;
         transition: font-size 1s;
     }
     .named_small{
-        font-size: 100%;
+        font-size: 200%;
         transform: none;
         transition: font-size 1s;
     }
