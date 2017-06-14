@@ -19,6 +19,7 @@ function undraged(){
     }, 300);
 }
 
+//arrows
 function arrowOn(arr){
     document.getElementById(arr).style.display = "block";
     document.getElementById(arr).style.opacity = 1;
@@ -29,6 +30,7 @@ function arrowOff(arr){
     document.getElementById(arr).style.opacity = 0;
 }
 
+//events
 function offEvents(){
     $(".jumpBack").off('click');
     $('#bod').off('click');
@@ -82,6 +84,7 @@ function slideText(prev, next){
     slideFText(next);
 }
 
+//scrolls
 function scrollBack(){
     var curPos1=$(window).scrollLeft();
     var width1=$(window).width()/4;
@@ -114,7 +117,8 @@ function centrateDodo(){
     $('html,body').animate({'scrollLeft':(curPos-(width*0.35-rec))},500);
     else
         $('html,body').animate({'scrollLeft':(curPos-(width*0.1-rec))},500);
-    setTimeout(function(){scrollMount=true; onEvents()},1000);
+    onEvents();
+    setTimeout(function(){scrollMount=true;},1000);
 }
 
 function moveDodo(){
@@ -158,9 +162,9 @@ function backDodo(){
 }
 
 function jumpBack(){
-            scrollBack();
             offEvents();
             if (i > 1) {
+                scrollBack();
                 if(i>0){
                     slideText($(".des"+(i+1)),$(".des"+(i)));
                 }
@@ -174,9 +178,9 @@ function jumpBack(){
 }
 
 function jumpRight(){
-            scrollRight();
             offEvents();
             if(i<4) {
+                scrollRight();
                 if(i===0) {
                     firstIteration();
                 }
@@ -187,6 +191,7 @@ function jumpRight(){
                 i++;
             }
             else if(i===4){
+                scrollRight();
                 moveDodo();
                 i=5;
                 if(window.innerWidth>800) {
