@@ -2,11 +2,7 @@ var floatinV=0;
 var floatSmth= 1;
 var step = 1, position = 0, off = true;
 var  i=0;
-
-function getRandomInt(min, max)
-{
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+var audio = document.getElementById('sound'), paused=true;
 
 function undraged(){
     setInterval(function(){
@@ -105,6 +101,20 @@ function onEvents(){
         }
     });
     off=false;
+}
+
+function volumeBtn(){
+    if(paused){
+        audio.play();
+        document.getElementById('vol').classList.add('fa-volume-down');
+        document.getElementById('vol').classList.remove('fa-volume-off');
+    }
+    else {
+        audio.pause();
+        document.getElementById('vol').classList.add('fa-volume-off');
+        document.getElementById('vol').classList.remove('fa-volume-down');
+    }
+    paused = (!paused);
 }
 
 //text fade
@@ -230,5 +240,10 @@ window.onload = function() {
     clouding();
     idle();
     document.getElementById('inner_dod').classList.remove('preload');
-    document.getElementById('sound').innerHTML ='<source src="src/sound/bgm01.mp3" hidden="true" />';
+    $('#sound').attr('src', 'src/sound/bgm01.mp3');
+    volumeBtn();
+    $('#vol').click(function(event){
+       event.stopPropagation();
+       volumeBtn();
+    });
     };

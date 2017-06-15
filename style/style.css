@@ -73,6 +73,12 @@ a:visited{
 a:active{
     color:#ffffff;
 }
+.volume-icon{
+    position: fixed;
+    left: 0;
+    top:0;
+    color: #ffffff;
+}
 .tapme{
     display: none;
     padding: 16px;
