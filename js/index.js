@@ -147,18 +147,24 @@ function slideText(prev, next){
 
 //moving
 function walk(){
+    console.log(right);
     if(right){
         document.getElementById('inner_dod').classList.add('walking');
         document.getElementById('inner_dod').classList.remove('idle');
+        document.getElementById('inner_dod').classList.remove('idle-left');
+        document.getElementById('inner_dod').classList.remove('walking-left');
     }else{
         document.getElementById('inner_dod').classList.add('walking-left');
         document.getElementById('inner_dod').classList.remove('idle-left');
     }
 }
 function idle() {
+    console.log(right);
     if(right){
         document.getElementById('inner_dod').classList.add('idle');
         document.getElementById('inner_dod').classList.remove('walking');
+        document.getElementById('inner_dod').classList.remove('idle-left');
+        document.getElementById('inner_dod').classList.remove('walking-left');
     }else{
         document.getElementById('inner_dod').classList.add('idle-left');
         document.getElementById('inner_dod').classList.remove('walking-left');
@@ -166,7 +172,6 @@ function idle() {
 }
 
 function backDodo(){
-    right=false;
     mounains(position-=500);
     walk();
     var time = setTimeout(function(){
@@ -176,7 +181,6 @@ function backDodo(){
 }
 
 function moveDodo(){
-    right=true;
         mounains(position+=500);
         walk();
         var time = setTimeout(function(){
@@ -187,6 +191,7 @@ function moveDodo(){
 
 //"jumps"
 function jumpBack(){
+            right=false;
             offEvents();
             if (i > 1) {
                 if(i>0){
@@ -201,6 +206,7 @@ function jumpBack(){
 }
 
 function jumpRight(){
+            right=true;
             offEvents();
             if(i<4) {
                 if(i===0) {
