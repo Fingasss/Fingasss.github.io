@@ -148,14 +148,10 @@ function idle() {
 function moveDodo(float=1){
         mounains(position+=500*float);
         walk();
-        var counter =0, why = setInterval(function(){
-            counter++;
-            if(counter ===300){
-                idle();
-                onEvents();
-                clearInterval(why);
-            }
-        }, 10);
+        var time = setTimeout(function(){
+            idle();
+            onEvents();
+        }, 3000);
 }
 
 //"jumps"
