@@ -226,11 +226,14 @@ a:active{
     margin-right: -70%;
     transition: all 3s;
 }
+.appStore{
+    display: flex;
+}
 .appStore img{
     max-width: 172px;
     width: 100%;
     top: 5%;
-    margin-top: 5%;
+    margin-bottom: 10px;
     background: rgba(255,255,255,0.0);
     overflow: hidden;
     height: 3%;
@@ -268,6 +271,9 @@ a:active{
     padding: 4px 4px;
 }
 @media only screen and (max-width: 1023px){
+    .volume-icon{
+        display: none;
+    }
     .named_small{
         transform: none;
         transition: font-size 1s;
