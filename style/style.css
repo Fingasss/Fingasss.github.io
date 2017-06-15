@@ -152,6 +152,14 @@ a:active{
     background: url("../src/idle_gif_re-min.png") 0px 0px no-repeat;
     animation:idle 1.2s steps(16) infinite;
 }
+.walking-left{
+    background: url("../src/walk-min_re-left.png") 0px 0px no-repeat;
+    animation:walk 1s steps(20) infinite;
+}
+.idle-left{
+    background: url("../src/idle_gif_re-min-left.png") 0px 0px no-repeat;
+    animation:idle 1.2s steps(16) infinite;
+}
 .dodo{
     transform: scale(1);
     z-index: 5;

@@ -1,6 +1,6 @@
 var floatinV=0;
 var floatSmth= 1;
-var step = 1, position = 0, off = true;
+var step = 1, position = 0, off = true, right=true;
 var  i=0;
 var audio = document.getElementById('sound'), paused=true;
 
@@ -147,16 +147,37 @@ function slideText(prev, next){
 
 //moving
 function walk(){
-    document.getElementById('inner_dod').classList.add('walking');
-    document.getElementById('inner_dod').classList.remove('idle');
+    if(right){
+        document.getElementById('inner_dod').classList.add('walking');
+        document.getElementById('inner_dod').classList.remove('idle');
+    }else{
+        document.getElementById('inner_dod').classList.add('walking-left');
+        document.getElementById('inner_dod').classList.remove('idle-left');
+    }
 }
 function idle() {
-    document.getElementById('inner_dod').classList.add('idle');
-    document.getElementById('inner_dod').classList.remove('walking');
+    if(right){
+        document.getElementById('inner_dod').classList.add('idle');
+        document.getElementById('inner_dod').classList.remove('walking');
+    }else{
+        document.getElementById('inner_dod').classList.add('idle-left');
+        document.getElementById('inner_dod').classList.remove('walking-left');
+    }
 }
 
-function moveDodo(float=1){
-        mounains(position+=500*float);
+function backDodo(){
+    right=false;
+    mounains(position-=500);
+    walk();
+    var time = setTimeout(function(){
+        idle();
+        onEvents();
+    }, 2500);
+}
+
+function moveDodo(){
+    right=true;
+        mounains(position+=500);
         walk();
         var time = setTimeout(function(){
             idle();
@@ -171,7 +192,7 @@ function jumpBack(){
                 if(i>0){
                     slideText($(".des"+(i)),$(".des"+(i-1)));
                 }
-                moveDodo(-1);
+                backDodo();
                 i--;
             }
             else{
