@@ -13,7 +13,7 @@
 }
 @keyframes walk {
     0% { background-position:    0px 0; }
-    100% { background-position: 0px -9065px; }
+    100% { background-position: 0px -9060px; }
 }
 
 html{
@@ -41,8 +41,8 @@ body{
     left:15%;
     z-index: 5;
     position: absolute;
-    height: 450px;
-    width: 415px;
+    height: 435px;
+    width: 337px;
     max-width: 415px;
     bottom: 5%;
 }
@@ -145,11 +145,11 @@ a:active{
     z-index: 0;
 }
 .walking{
-    background: url("../src/walk.png") 0px 0px no-repeat;
+    background: url("../src/walk-min_re.png") 0px 0px no-repeat;
     animation:walk 1s steps(20) infinite;
 }
 .idle{
-    background: url("../src/idle_gif.png") 0px 0px no-repeat;
+    background: url("../src/idle_gif_re-min.png") 0px 0px no-repeat;
     animation:idle 1.2s steps(16) infinite;
 }
 .preload{
@@ -308,11 +308,18 @@ a:active{
     }
     .outer_dodo{
         bottom: -12%;
-        left:-15%;
+        left:-10%;
         transform: scale(0.5);
     }
 }
-@media only screen and (max-width: 360px){
+@media only screen and (max-width: 420px) {
+    .outer_dodo{
+        bottom: -10%;
+        left:-10%;
+        transform: scale(0.5);
+    }
+}
+@media only screen and (max-width: 375px){
     .facebook, .vk, .insta, .linkedIn{
         padding: 0;
     }
@@ -327,14 +334,19 @@ a:active{
         transition: font-size 1s;
     }
     .outer_dodo{
-        bottom: -15%;
-        left:-20%;
+        bottom: -12%;
+        left:-15%;
         transform: scale(0.5);
     }
     .named_small{
         font-size: 200%;
         transform: none;
         transition: font-size 1s;
+    }
+}
+@media only screen and (max-width: 320px){
+    .outer_dodo {
+        bottom: -15%;
     }
 }
 
