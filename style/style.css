@@ -221,7 +221,7 @@ a:active{
     transition: all 3s;
 }
 .appStore img{
-    max-width: 100%;
+    max-width: 172px;
     width: 100%;
     top: 5%;
     margin-top: 5%;
@@ -249,18 +249,6 @@ a:active{
     color: #ffffff;
     font-size: 32px;
     display: inline;
-}
-.left_a{
-    opacity: 0;
-    display: none;
-    bottom:15%;
-    right:30%;
-    z-index: 25;
-    position: fixed;
-    width: 15%;
-    transition: opacity ease 1s;
-    animation: pulsate 1s ease-out;
-    animation-iteration-count:infinite;
 }
 .btn-animate{
     transition: opacity ease 1s;

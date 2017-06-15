@@ -151,7 +151,7 @@ function moveDodo(float=1){
         var time = setTimeout(function(){
             idle();
             onEvents();
-        }, 3000);
+        }, 2500);
 }
 
 //"jumps"
