@@ -152,9 +152,6 @@ a:active{
     background: url("../src/idle_gif_re-min.png") 0px 0px no-repeat;
     animation:idle 1.2s steps(16) infinite;
 }
-.preload{
-    background: url("../src/Walk (18).png") 0px 0px no-repeat;
-}
 .dodo{
     transform: scale(1);
     z-index: 5;

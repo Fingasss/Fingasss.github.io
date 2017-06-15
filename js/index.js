@@ -238,8 +238,6 @@ window.onload = function() {
     catchScroll();
     onEvents();
     clouding();
-    idle();
-    document.getElementById('inner_dod').classList.remove('preload');
     $('#sound').attr('src', 'src/sound/bgm01.mp3');
     volumeBtn();
     $('#vol').click(function(event){
