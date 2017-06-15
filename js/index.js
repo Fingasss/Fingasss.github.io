@@ -169,7 +169,7 @@ function jumpBack(){
             offEvents();
             if (i > 1) {
                 if(i>0){
-                    slideText($(".des"+(i+1)),$(".des"+(i)));
+                    slideText($(".des"+(i)),$(".des"+(i-1)));
                 }
                 moveDodo(-1);
                 i--;
