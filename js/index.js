@@ -77,7 +77,7 @@ function btnOn(btn){
 //events
 function offEvents(){
     $(".jumpBack").off('click');
-    $('#bod').off('click');
+    //$('#bod').off('click');
     $(document).off('keyup');
     off=true;
 }
@@ -87,10 +87,10 @@ function onEvents(){
         event.stopPropagation();
         jumpBack();
     });
-    $('#bod').click(function(event){
+  /*  $('#bod').click(function(event){
         event.stopPropagation();
         jumpRight();
-    });
+    });*/
     $(document).keyup(function(e) {
         if(e.which === 39 || e.keyCode === 39) {
             jumpRight();
@@ -120,8 +120,6 @@ function volumeBtn(){
 //text fade
 function firstIteration(){
     document.getElementById('finger').style.display = "none";
-    document.getElementById('headertext').classList.add('named_small');
-    document.getElementById('headertext').classList.remove('named');
     slideFText($(".des1"));
 }
 
