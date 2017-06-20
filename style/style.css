@@ -171,6 +171,7 @@ a:active{
     font-size: 1em;
     font-family: Arvo-Regular;
     display: inline-flex;
+    vertical-align: middle;
 }
 .incode a:visited{
     color: #3a3a3a;
@@ -328,9 +329,20 @@ a:active{
 .text_float{
     margin-top: 16.5px;
 }
-.right_btn{
+.sign_text
+{
+    position: absolute;
+    width: 175px;
+    height: 86px;
+    font-family: Troika;
+    font-size: 20px;
+    text-align: center;
+    color: #444444;
+    top:1.625em;
+    left:1.125em;
 }
-.left_btn{
+.sign_text2{
+    top:1em;
 }
 .line {
     margin-left: 53px;
