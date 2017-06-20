@@ -51,7 +51,7 @@ body{
     height: 460px;
     width: 350px;
     max-width: 415px;
-    bottom: 2%;
+    bottom: 30px;
 }
 .sign{
     position: absolute;
