@@ -142,25 +142,25 @@ a:active{
 .clouds_b img{
     position: absolute;
     overflow: hidden;
-    background-image: url("../src/clouds.png");
+    background-image: url("../src/world-clouds.png");
     background-size: contain;
     width: 55%;
 }
 .walking{
-    background: url("../src/walk-min_re3.png") 0px 0px no-repeat;
+    background: url("../src/sprite-girl-walk-toright.png") 0px 0px no-repeat;
     animation:walk 1s steps(20) infinite;
 }
 .idle{
-    background: url("../src/idle_gif_re-min.png") 0px 0px no-repeat;
+    background: url("../src/sprite-girl-walk-toright-min.png") 0px 0px no-repeat;
     animation:idle 1.2s steps(16) infinite;
 }
 .walking-left{
-    background: url("../src/walk-min_re3-left.png") 0px 0px no-repeat;
+    background: url("../src/sprite-girl-walk-toleft.png") 0px 0px no-repeat;
     animation:walk 1s steps(20) infinite;
     right: 10%;
 }
 .idle-left{
-    background: url("../src/idle_gif_re-min-left.png") 0px 0px no-repeat;
+    background: url("../src/sprite-girl-walk-toleft-min.png") 0px 0px no-repeat;
     animation:idle 1.2s steps(16) infinite;
     right: 10%;
 }
@@ -176,14 +176,14 @@ a:active{
     position: absolute;
     bottom: 0;
     left: 0;
-    background-image: url("../src/terr.png");
+    background-image: url("../src/world-terr.png");
     background-size: contain;
     background-repeat: repeat-x;
 }
 .mountains{
     position: absolute;
     overflow: hidden;
-    background-image: url("../src/goodMB.png");
+    background-image: url("../src/world-mountains.png");
     background-size: cover;
     background-repeat: repeat-x;
     height: 40%;
