@@ -148,11 +148,13 @@ function walk(){
     console.log(right);
     if(right){
         document.getElementById('inner_dod').classList.add('walking');
+        document.getElementById('dod').style.transform = "translate(0,0)";
         document.getElementById('inner_dod').classList.remove('idle');
         document.getElementById('inner_dod').classList.remove('idle-left');
         document.getElementById('inner_dod').classList.remove('walking-left');
     }else{
         document.getElementById('inner_dod').classList.add('walking-left');
+        document.getElementById('dod').style.transform = "translate(200%,0)";
         document.getElementById('inner_dod').classList.remove('idle-left');
     }
 }
@@ -160,11 +162,13 @@ function idle() {
     console.log(right);
     if(right){
         document.getElementById('inner_dod').classList.add('idle');
+        document.getElementById('dod').style.transform = "translate(0,0)";
         document.getElementById('inner_dod').classList.remove('walking');
         document.getElementById('inner_dod').classList.remove('idle-left');
         document.getElementById('inner_dod').classList.remove('walking-left');
     }else{
         document.getElementById('inner_dod').classList.add('idle-left');
+        document.getElementById('dod').style.transform = "translate(200%,0)";
         document.getElementById('inner_dod').classList.remove('walking-left');
     }
 }
