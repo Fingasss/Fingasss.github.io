@@ -174,8 +174,8 @@ a:active{
 .mountains{
     position: absolute;
     overflow: hidden;
-    background-image: url("../src/m.png");
-    background-size: contain;
+    background-image: url("../src/goodMB.png");
+    background-size: cover;
     background-repeat: repeat-x;
     height: 40%;
     width: 200%;
@@ -222,45 +222,30 @@ a:active{
     min-width: 127px;
     display: flex;
 }
-
-.svg-rect{
+.img100{
     width: 100%;
-    height: 100%;
-    margin-left: 46%;
 }
-.container_svg{
-    height: 100%;
-    width: 100%;
-    position: relative;
+.right_btn{
+    position: fixed;
+    width: 7%;
+    height: 20%;
+    top:60%;
+    right: 5%;
 }
-.circle-svg{
-    width: 100%;
-    height: 100%;
-    margin-top: -20%;
-    position: absolute;
-}
-circle{
-    cx:50%;
-    cy:50%;
-    r:40%;
-    stroke: #fdb55f;
-    stroke-width:5px;
-    fill:rgba(255,255,255, 0.5);
-}
-rect{
-    width: 10%;
-    height: 100%;
-    fill:#fdb55f;
-    stroke:#fdb55f;
+.left_btn{
+    height: 20%;
+    width: 7%;
+    top:60%;
+    position: fixed;
+    left: 5%;
 }
 .sound_control{
-    display: none;
+    display: block;
     position: fixed;
     height: 10%;
     width: 5%;
     right: 27%;
-    top:0;
-    background-image: url("../src/down.png");
+    top:-5%;
 }
 .appStore img{
     width: 100%;
