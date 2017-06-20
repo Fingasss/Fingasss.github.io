@@ -2,7 +2,7 @@ var floatinV=0;
 var floatSmth= 1;
 var step = 1, position = 0, off = true, right=true;
 var  i=0;
-var audio = document.getElementById('sound'), paused=true;
+var audio = document.getElementById('sound'), paused=false;
 
 function undraged(){
     setInterval(function(){
@@ -104,19 +104,17 @@ function onEvents(){
     off=false;
 }
 
-/*function volumeBtn(){
+function volumeBtn(){
     if(paused){
         audio.play();
-        document.getElementById('vol').classList.add('fa-volume-down');
-        document.getElementById('vol').classList.remove('fa-volume-off');
+        $("#vol_speaker").attr("src","src/icon-music-on.png");
     }
     else {
         audio.pause();
-        document.getElementById('vol').classList.add('fa-volume-off');
-        document.getElementById('vol').classList.remove('fa-volume-down');
+        $("#vol_speaker").attr("src","src/icon-music-off.png");
     }
     paused = (!paused);
-}*/
+}
 
 //moving
 function walk(){
@@ -253,9 +251,9 @@ window.onload = function() {
     onEvents();
     clouding();
     $('#sound').attr('src', 'src/sound/bgm01.mp3');
-  //  volumeBtn();
+    volumeBtn();
     $('#vol').click(function(event){
        event.stopPropagation();
- //      volumeBtn();
+       volumeBtn();
     });
     };
