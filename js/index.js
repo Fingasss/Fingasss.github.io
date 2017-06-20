@@ -103,7 +103,7 @@ function onEvents(){
     off=false;
 }
 
-function volumeBtn(){
+/*function volumeBtn(){
     if(paused){
         audio.play();
         document.getElementById('vol').classList.add('fa-volume-down');
@@ -115,10 +115,10 @@ function volumeBtn(){
         document.getElementById('vol').classList.remove('fa-volume-down');
     }
     paused = (!paused);
-}
+}*/
 
 //text fade
-function firstIteration(){
+/*function firstIteration(){
     document.getElementById('finger').style.display = "none";
     slideFText($(".des1"));
 }
@@ -140,7 +140,7 @@ function slideText(prev, next){
         "display":"none"
     });
     slideFText(next);
-}
+}*/
 
 
 //moving
@@ -193,7 +193,7 @@ function jumpBack(){
             offEvents();
             if (i > 1) {
                 if(i>0){
-                    slideText($(".des"+(i)),$(".des"+(i-1)));
+     //               slideText($(".des"+(i)),$(".des"+(i-1)));
                 }
                 backDodo();
                 i--;
@@ -208,10 +208,10 @@ function jumpRight(){
             offEvents();
             if(i<4) {
                 if(i===0) {
-                    firstIteration();
+                //    firstIteration();
                 }
                 else if(i>0){
-                    slideText($(".des"+(i)),$(".des"+(i+1)));
+         //           slideText($(".des"+(i)),$(".des"+(i+1)));
                 }
                 moveDodo();
                 i++;
@@ -264,9 +264,9 @@ window.onload = function() {
     onEvents();
     clouding();
     $('#sound').attr('src', 'src/sound/bgm01.mp3');
-    volumeBtn();
+  //  volumeBtn();
     $('#vol').click(function(event){
        event.stopPropagation();
-       volumeBtn();
+ //      volumeBtn();
     });
     };
