@@ -77,20 +77,21 @@ function btnOn(btn){
 //events
 function offEvents(){
     $(".jumpBack").off('click');
-    //$('#bod').off('click');
+    $('.left_btn').off('click');
+    $('.right_btn').off('click');
     $(document).off('keyup');
     off=true;
 }
 
 function onEvents(){
-    $(".jumpBack").click(function(event){
+    $(".left_btn").click(function(event){
         event.stopPropagation();
         jumpBack();
     });
-  /*  $('#bod').click(function(event){
+    $('.right_btn').click(function(event){
         event.stopPropagation();
         jumpRight();
-    });*/
+    });
     $(document).keyup(function(e) {
         if(e.which === 39 || e.keyCode === 39) {
             jumpRight();
@@ -116,32 +117,6 @@ function onEvents(){
     }
     paused = (!paused);
 }*/
-
-//text fade
-/*function firstIteration(){
-    document.getElementById('finger').style.display = "none";
-    slideFText($(".des1"));
-}
-
-function slideFText(next){
-    next.css({
-        "display":"block",
-        "left":"50%",
-        "right":"5%",
-        "opacity":"1",
-        "transition":"all 1s ease"
-    });
-}
-
-function slideText(prev, next){
-    prev.css({
-        "opacity":"0",
-        "transition":"all 1s ease",
-        "display":"none"
-    });
-    slideFText(next);
-}*/
-
 
 //moving
 function walk(){

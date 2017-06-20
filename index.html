@@ -6,7 +6,7 @@
     <title>DoDo Adventures</title>
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/font-awesome.min.css">
-    <link rel="shortcut icon" href="src/Walk%20(18).png" type="image/png">
+    <link rel="shortcut icon" href="src/favicon.png" type="image/png">
     <script>
         var imagesArray = ["src/idle_gif_re-min.png", "src/walk-min_re3.png", "src/idle_gif_re-min-left.png", "src/walk-min_re3-left.png"];
         var preload = [];
@@ -27,6 +27,7 @@
     </div>
     <div class="mountains paralaxed3"></div>
     <div class="terrain paralaxed4"></div>
+    <div class="bridge bridge1"><img src="src/bridge.png"></div>
     <div id="dod" class="outer_dodo">
         <div id="inner_dod" class="dodo idle"></div>
     </div>
@@ -47,11 +48,12 @@
         <a class="appStore" href="https://itunes.apple.com/ru/app/dodo-adventures-in-the-mysterious-world/id1235133226?l=en&mt=8"><img id="btn" src="src/Download_on_the_App_Store_Badge_US-UK_135x40.svg" alt="AppStore"></a>
     </div>
 </div>
+<div class="line"></div>
 <div class="sound_control">
-    <img class="img100" src="src/control_music_down.png">
+    <div class="speaker"><img src="src/icon-music-off.png"></div>
 </div>
-<div class="right_btn"><img class="img100" src="src/right-arrow.png"></div>
-<div class="left_btn"><img class="img100" src="src/left-arrow.png"></div>
+<div class="control_btn right_btn"></div>
+<div class="control_btn left_btn"></div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script src="js/index.js"></script>
