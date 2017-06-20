@@ -118,7 +118,6 @@ function volumeBtn(){
 
 //moving
 function walk(){
-    console.log(right);
     if(right){
         document.getElementById('inner_dod').classList.add('walking');
         if(window.innerWidth>1200)

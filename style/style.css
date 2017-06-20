@@ -169,6 +169,7 @@ a:active{
             4px 4px 0 #fff;
 }
 .presents{
+    width:17%;
     color: #3a3a3a;
     font-size: 1em;
     font-family: Arvo-Regular;
@@ -185,8 +186,11 @@ a:active{
     padding: 0 0;
 }
 .named {
-    margin-top: 2%;
-    width:100vw;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
     position: fixed;
     text-align: center;
 }
