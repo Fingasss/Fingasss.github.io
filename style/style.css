@@ -37,6 +37,8 @@ html{
     -moz-user-select: none;
 
     -ms-user-select: none;
+
+    text-decoration: none;
 }
 body{
     height: 100%;
@@ -170,8 +172,9 @@ a:active{
     color: #3a3a3a;
     font-size: 1em;
     font-family: Arvo-Regular;
-    display: inline-flex;
-    vertical-align: middle;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .incode a:visited{
     color: #3a3a3a;
@@ -398,14 +401,14 @@ a:active{
 .presents a{
     max-height: 30px;
     height: 30px;
-    padding: 0 8px;
 }
-a i{
-    margin-top: auto;
-    margin-bottom: auto;
+
+.socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 30px;
     width: 30px;
-    font-size: 1em;
     background-color: #ff8989;
     border-radius: 50%;
     color: #ffffff;
@@ -463,9 +466,6 @@ a i{
     }
 }
 @media only screen and (max-width: 375px){
-    .facebook, .vk, .insta, .linkedIn{
-        padding: 0;
-    }
     .outer_dodo{
         transform: scale(0.4);
     }
