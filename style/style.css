@@ -53,6 +53,25 @@ body{
     max-width: 415px;
     bottom: 2%;
 }
+.sign{
+    position: absolute;
+    bottom: 0;
+    font-family: Troika;
+    font-size: 1.25em;
+    color: #444444;
+}
+.sign1{
+    left:34%
+}
+.sign2{
+    left:54%;
+}
+.sign3{
+    left: 82%;
+}
+.sign4{
+    left: 125%;
+}
 .bridge{
     position: relative;
     height: 50px;
@@ -64,7 +83,7 @@ body{
 }
 .bridge2{
     position: absolute;
-    left: 70%;
+    left: 50%;
     bottom: 0;
 }
 .bridge3{
@@ -88,7 +107,7 @@ body{
     left: 35%;
 }
 .mushroom2{
-    left: 77%;
+    left: 57%;
 }
 .mushroom3{
     left:89%;

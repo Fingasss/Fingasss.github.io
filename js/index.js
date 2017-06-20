@@ -218,6 +218,9 @@ function mounains(st){
     $(".mushroom").css({
         "transform": "translate(" + -st*5.65 + "%, 0%)"
     });
+    $(".sign").css({
+        "transform": "translate(" + -st/1.1 + "%, 0%)"
+    });
 }
 
 function windowWHParalax(selector, st){
