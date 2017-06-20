@@ -62,6 +62,21 @@ body{
     left: 30%;
     bottom: 0;
 }
+.bridge2{
+    position: absolute;
+    left: 70%;
+    bottom: 0;
+}
+.bridge3{
+    position: absolute;
+    left: 80%;
+    bottom: 0;
+}
+.bridge4{
+    position: absolute;
+    left: 120%;
+    bottom: 0;
+}
 .description {
     display: none;
     text-align: center;
