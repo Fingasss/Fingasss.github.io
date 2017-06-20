@@ -106,7 +106,12 @@ a:active{
     color: #ff6666;
     font-weight: bold;
     letter-spacing: 6.9px;
-    -webkit-text-stroke: 4px #ff4747;
+    text-shadow:
+            -4px -4px 0 #ff4747,
+            4px -4px 0 #ff4747,
+            -4px 4px 0 #ff4747,
+            4px 4px 0 #ff4747;
+
 }
 .sec_head{
     padding-top: 32px;
