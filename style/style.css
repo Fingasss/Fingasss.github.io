@@ -77,6 +77,22 @@ body{
     left: 120%;
     bottom: 0;
 }
+.mushroom{
+    position: absolute;
+    bottom: 32px;
+}
+.mushroom1{
+    left: 35%;
+}
+.mushroom2{
+    left: 77%;
+}
+.mushroom3{
+    left:89%;
+}
+.mushroom4{
+    left: 130%;
+}
 .description {
     display: none;
     text-align: center;

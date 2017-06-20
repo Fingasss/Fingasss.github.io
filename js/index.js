@@ -217,6 +217,9 @@ function mounains(st){
     $(".bridge").css({
         "transform": "translate(" + -st + "%, 0%)"
     });
+    $(".mushroom").css({
+        "transform": "translate(" + -st*5.65 + "%, 0%)"
+    });
 }
 
 function windowWHParalax(selector, st){
