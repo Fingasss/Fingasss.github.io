@@ -102,21 +102,43 @@ a:active{
 }
 .DoDo_Head{
     font-family: Arvo-Bold;
-    font-size: 6em;
+    font-size: 5.375em;
     color: #ff6666;
+    font-weight: bold;
+    letter-spacing: 6.9px;
     -webkit-text-stroke: 4px #ff4747;
 }
 .sec_head{
-    padding-top: 0.5%;
+    padding-top: 32px;
     color: #ff6666;
-    font-size: 4em;
-    -webkit-text-stroke: 4px #ffffff;
+    font-size: 3.75em;
+    text-shadow:
+            -4px -4px 0 #fff,
+            4px -4px 0 #fff,
+            -4px 4px 0 #fff,
+            4px 4px 0 #fff;
 }
 .presents{
     color: #3a3a3a;
     font-size: 1em;
     font-family: Arvo-Regular;
     display: inline-flex;
+}
+.music {
+    width: 40px;
+    height: 12px;
+    font-family: Troika;
+    font-size: 1em;
+    text-align: center;
+    color: #ffffff;
+
+    text-shadow:
+            -2px -2px 0 #feb660,
+            2px -2px 0 #feb660,
+            -2px 2px 0 #feb660,
+            2px 2px 0 #feb660;
+    margin-left: 30px;
+    margin-top: 15px;
 }
 .incode a:visited{
     color: #3a3a3a;
@@ -163,6 +185,12 @@ a:active{
     background: url("../src/sprite-girl-walk-toleft-min.png") 0px 0px no-repeat;
     animation:idle 1.2s steps(16) infinite;
     right: 10%;
+}
+.left_btn img{
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
 }
 .dodo{
     transform: scale(1);
@@ -234,21 +262,43 @@ a:active{
 .img100{
     width: 100%;
 }
+.btn_container{
+    position: fixed;
+    top:60%;
+    font-family: Troika;
+    font-size: 24px;
+    text-align: center;
+    color: #ff6666;
+    text-shadow:
+            -2px -2px 0 #fff,
+            2px -2px 0 #fff,
+            -2px 2px 0 #fff,
+            2px 2px 0 #fff;
+}
+.btn_container_left{
+    left: 41px;
+    width: 92px;
+    height: 113.5px;
+}
+.btn_container_right{
+    right: 41px;
+    width: 92px;
+    height: 113.5px;
+}
 .control_btn{
     cursor: pointer;
-    position: fixed;
     height: 80px;
     width: 80px;
-    top:60%;
     border-radius: 8px;
     background-color: rgba(238,238,238,0.8);
     border: solid 4px #ff8989;
 }
+.text_float{
+    margin-top: 16.5px;
+}
 .right_btn{
-    right: 40.5px;
 }
 .left_btn{
-    left: 40.5px;
 }
 .line {
     position: fixed;
