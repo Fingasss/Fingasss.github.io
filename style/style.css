@@ -177,6 +177,9 @@ a:active{
     justify-content: space-between;
     align-items: center;
 }
+.incode a{
+  color:#3a3a3a;
+}
 .incode a:visited{
     color: #3a3a3a;
 }
@@ -289,12 +292,9 @@ a:active{
 }
 .appStore{
     width: 13.5%;
-    margin-left: 43.25%;
-    margin-right: 43.25%;
     margin-top: 1.7%;
     background: rgba(255,255,255,0.0);
     overflow: hidden;
-    height: 3%;
     min-height: 40px;
     min-width: 127px;
     display: flex;
@@ -364,7 +364,7 @@ a:active{
 .sound_container{
     position: fixed;
     top:0;
-    right: 393px;
+    right: 30%;
 }
 .music {
     width: 100%;
@@ -402,10 +402,6 @@ a:active{
     animation: pulsate 1s ease-out;
     animation-iteration-count:infinite;
 }
-.presents a{
-    max-height: 30px;
-    height: 30px;
-}
 
 .socials {
     display: flex;
@@ -418,6 +414,9 @@ a:active{
     color: #ffffff;
 }
 @media only screen and (max-width: 1024px){
+  .sound_container{
+    display: none;
+  }
     .volume-icon{
         display: none;
     }
@@ -499,10 +498,17 @@ a:active{
     body{
         font-size: 230%;
     }
+    .socials{
+      height: 50px;
+      width: 50px;
+    }
 }
 @media only screen and (min-width: 3800px){
     body{
         font-size: 300%;
     }
+    .socials{
+      height: 70px;
+      width: 70px;
+    }
 }
-
