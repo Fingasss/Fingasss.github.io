@@ -150,7 +150,7 @@ function idle() {
 }
 
 function backDodo(){
-    mounains(position-=500);
+    mounains(position-=1000);
     walk();
     var time = setTimeout(function(){
         idle();
@@ -159,7 +159,7 @@ function backDodo(){
 }
 
 function moveDodo(){
-        mounains(position+=500);
+        mounains(position+=1000);
         walk();
         var time = setTimeout(function(){
             idle();
@@ -209,16 +209,16 @@ function jumpRight(){
 
 function mounains(st){
     $(".paralaxed3").css({
-        "transform": "translate(" + -st / 50 + "%, 0%)"
+        "transform": "translate(" + -st / 70 + "%, 0%)"
     });
     $(".bridge").css({
-        "transform": "translate(" + -st + "%, 0%)"
+        "transform": "translate(" + -st + "px, 0%)"
     });
     $(".mushroom").css({
-        "transform": "translate(" + -st*5.65 + "%, 0%)"
+        "transform": "translate(" + -st + "px, 0%)"
     });
     $(".sign").css({
-        "transform": "translate(" + -st/1.1 + "%, 0%)"
+        "transform": "translate(" + -st + "px, 0%)"
     });
 }
 
