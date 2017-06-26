@@ -1,8 +1,10 @@
-var floatinV=0;
-var floatSmth= 1;
-var step = 1, position = 0, off = true, right=true;
-var  i=0;
-var audio = document.getElementById('sound'), paused=false;
+var floatinV=0,
+    floatSmth= 1,
+    position = 0,
+    off = true,
+    right=true,
+    i=0,
+    audio = document.getElementById('sound'), paused=false;
 
 function undraged(){
     setInterval(function(){
@@ -69,7 +71,7 @@ function clouding(){
     }, 600);
 }
 
-//arrows
+//appStore
 function btnOn(btn){
     document.getElementById(btn).classList.add('btn-animate');
 }
@@ -133,7 +135,6 @@ function walk(){
     }
 }
 function idle() {
-    console.log(right);
     if(right){
         document.getElementById('inner_dod').classList.add('idle');
         if(window.innerWidth>1200)
@@ -238,7 +239,6 @@ function windowWHParalax(selector, st){
     if(floatinV>40) {
         floatSmth*=-1;
         floatinV = 0;
-        step++;
     }
     floatinV++;
 }
@@ -250,7 +250,6 @@ function windowHParalax(selector, st, koef){
     if(floatinV>20) {
         floatSmth*=-1;
         floatinV = 0;
-        step++;
     }
     floatinV++;
 }
