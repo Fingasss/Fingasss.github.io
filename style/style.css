@@ -66,16 +66,16 @@ body{
     color: #444444;
 }
 .sign1{
-    left:2200px;
+    left:1800px;
 }
 .sign2{
-    left:3200px;
+    left:2800px;
 }
 .sign3{
-    left: 4200px;
+    left: 3800px;
 }
 .sign4{
-    left: 5200px;
+    left: 4800px;
 }
 .bridge{
     position: absolute;
@@ -83,16 +83,16 @@ body{
     bottom: 0;
 }
 .bridge1{
-    left: 2000px;
+    left: 1600px;
 }
 .bridge2{
-    left: 3000px;
+    left: 2600px;
 }
 .bridge3{
-    left: 4000px;
+    left: 3600px;
 }
 .bridge4{
-    left: 5000px;
+    left: 4600px;
 }
 .mushroom{
     position: absolute;
@@ -637,6 +637,30 @@ a:active{
 @media only screen and (min-width: 1800px){
     body{
         font-size: 150%;
+    }
+    .sign1{
+        left:2200px;
+    }
+    .sign2{
+        left:3200px;
+    }
+    .sign3{
+        left: 4200px;
+    }
+    .sign4{
+        left: 5200px;
+    }
+    .bridge1{
+        left: 2000px;
+    }
+    .bridge2{
+        left: 3000px;
+    }
+    .bridge3{
+        left: 4000px;
+    }
+    .bridge4{
+        left: 5000px;
     }
 }
 @media only screen and (min-width: 2500px){
