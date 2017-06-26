@@ -172,11 +172,18 @@ function jumpBack(){
             right=false;
             offEvents();
             if (i > 1) {
-                if(i>0){
-     //               slideText($(".des"+(i)),$(".des"+(i-1)));
-                }
+              if(i===4){
+                $(".btn_container_right").css({
+                  "display":"block"
+                });
+              }
                 backDodo();
                 i--;
+                if(i===1){
+                  $(".btn_container_left").css({
+                    "display":"none"
+                  });
+                }
             }
             else{
                 onEvents();
@@ -186,19 +193,21 @@ function jumpBack(){
 function jumpRight(){
             right=true;
             offEvents();
-            if(i<4) {
-                if(i===0) {
-                //    firstIteration();
-                }
-                else if(i>0){
-         //           slideText($(".des"+(i)),$(".des"+(i+1)));
-                }
+            if(i<3) {
+              if(i>0){
+                $(".btn_container_left").css({
+                  "display":"block"
+                });
+              }
                 moveDodo();
                 i++;
             }
-            else if(i===4){
+            else if(i===3){
                 moveDodo();
-                i=5;
+                $(".btn_container_right").css({
+                  "display":"none"
+                });
+                i=4;
                 btnOn('btn');
             }else{
                 onEvents();

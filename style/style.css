@@ -315,6 +315,7 @@ a:active{
 }
 .btn_container_left{
     left: 41px;
+    display: none;
 }
 .btn_container_right{
     right: 41px;
